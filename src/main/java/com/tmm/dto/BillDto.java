@@ -1,7 +1,5 @@
 package com.tmm.dto;
 
-import com.tmm.domain.ProductDetails;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -12,9 +10,9 @@ import java.util.List;
 public class BillDto {
     private Long id;
 
-    private  Long customerId;
+    private Long customerId;
 
-    private List<ProductDetails> Products;
+    private List<Products> products;
 
     private BigDecimal totalPrices;
 
@@ -37,12 +35,12 @@ public class BillDto {
         this.customerId = customerId;
     }
 
-    public List<ProductDetails> getProducts() {
-        return Products;
+    public List<Products> getProducts() {
+        return this.products;
     }
 
-    public void setProducts(List<ProductDetails> products) {
-        Products = products;
+    public void setProducts(List<Products> products) {
+        this.products = products;
     }
 
     public Long getId() {
@@ -74,7 +72,7 @@ public class BillDto {
         return "BillDto{" +
                 "id=" + id +
                 ", customerId=" + customerId +
-                ", Products=" + Products +
+                ", products=" + products +
                 ", totalPrices=" + totalPrices +
                 ", details='" + details + '\'' +
                 '}';

@@ -62,4 +62,14 @@ public class Bill {
     public void setDetails(String details) {
         this.details = details;
     }
+
+    @Override
+    public String toString() {
+        return "Bill{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", totalPrices=" + totalPrices +
+                ", details='" + details + '\'' +
+                '}';
+    }
 }

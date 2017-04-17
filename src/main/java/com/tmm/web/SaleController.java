@@ -5,6 +5,7 @@ import com.tmm.domain.Bill;
 import com.tmm.domain.Product;
 import com.tmm.domain.ProductDetails;
 import com.tmm.dto.BillDto;
+import com.tmm.dto.Products;
 import com.tmm.service.BillRepository;
 import com.tmm.service.ProductDetailsRepository;
 import com.tmm.service.ProductRepository;
@@ -73,7 +74,7 @@ public class SaleController {
     @PostMapping("/bill")
     @ResponseBody
     public BillDto addBill(@RequestBody String body) {
-
+        System.out.println(body);
         BillDto billDto = gson.fromJson(body, BillDto.class);
 
         System.out.println(billDto.toString());
@@ -82,11 +83,30 @@ public class SaleController {
         bill.setDetails(billDto.getDetails());
         bill.setTotalPrices(billDto.getTotalPrices());
         Bill billId = billRepository.save(bill);
-        List<ProductDetails> productDetails = new ArrayList<ProductDetails>(billDto.getProducts());
 
+
+        System.out.println("billId: "+billId.getId());
         for (int i = 0; i < billDto.getProducts().size(); i++) {
-            productDetailsRepository.save(productDetails.get(i));
+
+            Products products = new Products();
+
+            ProductDetails productDetails = new ProductDetails();
+            products = billDto.getProducts().get(i);
+
+            productDetails.setDetails(products.getDetails());
+
+            productDetails.setPrice(products.getPrice());
+            productDetails.setProductId(products.getProductId());
+            productDetails.setQuantity(products.getQuantity());
+            productDetails.setBillId(billId.getId());
+            System.out.println(productDetails.toString());
+
+            productDetailsRepository.save(productDetails);
         }
+
+
+        System.out.println("==================================");
+        billDto.setId(billId.getId());
         return billDto;
     }
 

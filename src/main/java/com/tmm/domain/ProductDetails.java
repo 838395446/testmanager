@@ -35,6 +35,14 @@ public class ProductDetails {
         this.details = details;
     }
 
+    public Long getBillId() {
+        return billId;
+    }
+
+    public void setBillId(Long billId) {
+        this.billId = billId;
+    }
+
     public Long getId() {
         return id;
     }
@@ -44,7 +52,7 @@ public class ProductDetails {
     }
 
     public Long getProductId() {
-        return productId;
+        return this.productId;
     }
 
     public void setProductId(Long productId) {
