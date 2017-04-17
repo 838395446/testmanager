@@ -29,6 +29,22 @@ public class BillDto {
         this.details = details;
     }
 
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public List<ProductDetails> getProducts() {
+        return Products;
+    }
+
+    public void setProducts(List<ProductDetails> products) {
+        Products = products;
+    }
+
     public Long getId() {
         return id;
     }
@@ -57,6 +73,8 @@ public class BillDto {
     public String toString() {
         return "BillDto{" +
                 "id=" + id +
+                ", customerId=" + customerId +
+                ", Products=" + Products +
                 ", totalPrices=" + totalPrices +
                 ", details='" + details + '\'' +
                 '}';

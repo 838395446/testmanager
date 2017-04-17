@@ -17,8 +17,6 @@ public class Bill {
 
     private  Long customerId;
 
-    private Long productDetailsId;
-
     private BigDecimal totalPrices;
     @Column(length = 255)
     private String details;
@@ -26,9 +24,9 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(Long customerId, Long productDetailsId, BigDecimal totalPrices, String details) {
+    public Bill(Long customerId, BigDecimal totalPrices, String details) {
         this.customerId = customerId;
-        this.productDetailsId = productDetailsId;
+
         this.totalPrices = totalPrices;
         this.details = details;
     }
@@ -47,14 +45,6 @@ public class Bill {
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
-    }
-
-    public Long getProductDetailsId() {
-        return productDetailsId;
-    }
-
-    public void setProductDetailsId(Long productDetailsId) {
-        this.productDetailsId = productDetailsId;
     }
 
     public BigDecimal getTotalPrices() {

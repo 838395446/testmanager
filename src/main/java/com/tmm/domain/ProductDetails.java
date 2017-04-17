@@ -15,7 +15,7 @@ public class ProductDetails {
     @Id
     @GeneratedValue
     private Long id;
-
+    private Long billId;
     private Long productId;
 
     private BigDecimal price;
