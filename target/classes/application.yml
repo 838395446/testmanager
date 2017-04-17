@@ -13,7 +13,7 @@ spring:
     show-sql: true
     #Hibernate ddl auto (validate|create|create-drop|update)
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
