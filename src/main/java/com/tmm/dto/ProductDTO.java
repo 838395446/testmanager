@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 /**
  * Created by Captain Wang on 17/4/17.
  */
-public class Products {
+public class ProductDTO {
 
     /**
      * Copyright 2017 bejson.com
@@ -13,7 +13,7 @@ public class Products {
 
 
     private String details;
-    private Long id;
+    //private Long id;
     private BigDecimal price;
 
     private Long productId;
@@ -27,13 +27,13 @@ public class Products {
         return details;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    //public void setId(Long id) {
+    //    this.id = id;
+    //}
 
-    public Long getId() {
-        return id;
-    }
+    //public Long getId() {
+     //   return id;
+    //}
 
     public void setPrice(BigDecimal price) {
         this.price = price;
@@ -61,9 +61,9 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Products{" +
+        return "ProductDTO{" +
                 "details='" + details + '\'' +
-                ", id=" + id +
+                //", id=" + id +
                 ", price=" + price +
                 ", productid=" + productId +
                 ", quantity=" + quantity +

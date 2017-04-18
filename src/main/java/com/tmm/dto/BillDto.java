@@ -12,7 +12,7 @@ public class BillDto {
 
     private Long customerId;
 
-    private List<Products> products;
+    private List<ProductDTO> products;
 
     private BigDecimal totalPrices;
 
@@ -35,11 +35,11 @@ public class BillDto {
         this.customerId = customerId;
     }
 
-    public List<Products> getProducts() {
+    public List<ProductDTO> getProducts() {
         return this.products;
     }
 
-    public void setProducts(List<Products> products) {
+    public void setProducts(List<ProductDTO> products) {
         this.products = products;
     }
 

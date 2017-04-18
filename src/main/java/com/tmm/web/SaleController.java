@@ -5,13 +5,15 @@ import com.tmm.domain.Bill;
 import com.tmm.domain.Product;
 import com.tmm.domain.ProductDetails;
 import com.tmm.dto.BillDto;
-import com.tmm.dto.Products;
+import com.tmm.dto.ProductDTO;
 import com.tmm.service.BillRepository;
 import com.tmm.service.ProductDetailsRepository;
 import com.tmm.service.ProductRepository;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,8 +34,10 @@ public class SaleController {
     @Autowired
     private ProductDetailsRepository productDetailsRepository;
 
+    //
     @PostMapping("/product")
     @ResponseBody
+    @ApiOperation(value = "添加商品", httpMethod = "POST", notes = "暂无")
     public Product addProduct(@RequestBody String body) {
 
         Product product = gson.fromJson(body, Product.class);
@@ -43,18 +47,30 @@ public class SaleController {
         return product;
     }
 
-
+   //
     @GetMapping("/product")
     @ResponseBody
+    @ApiOperation(value = "获取商品列表", httpMethod = "GET", notes = "暂无")
     public List<Product> getAllProducts() {
 
         List<Product> productList = new ArrayList<Product>();
         productList.addAll(productRepository.findAll());
         return productList;
     }
-
-    @DeleteMapping("/product")
+   //
+    @GetMapping(value = "/product/{id}")
     @ResponseBody
+    @ApiOperation(value = "通过ID获取商品信息", httpMethod = "GET", notes = "暂无")
+    public Product getproductById(@PathVariable("id") Long id) {
+
+
+        return productRepository.findOne(id);
+    }
+
+    //
+    @DeleteMapping("/product/{id}")
+    @ResponseBody
+    @ApiOperation(value = "删除销售单", httpMethod = "DELETE", notes = "暂无")
     public void deleteProduct(@RequestParam Long productId) {
 
 
@@ -62,17 +78,21 @@ public class SaleController {
 
     }
 
-    @PutMapping("/product")
+    //
+    @PutMapping("/product/{id}")
     @ResponseBody
-    public void updateProduct(@RequestParam Long productId) {
+    @ApiOperation(value = "修改销售单", httpMethod = "PUT", notes = "暂无")
+    public void updateProduct(@PathVariable("id") Long productId) {
 
 
         Product product = new Product();
 
     }
-
+    //
     @PostMapping("/bill")
     @ResponseBody
+    @Transactional
+    @ApiOperation(value = "添加销售单", httpMethod = "POST", notes = "暂无")
     public BillDto addBill(@RequestBody String body) {
         System.out.println(body);
         BillDto billDto = gson.fromJson(body, BillDto.class);
@@ -84,23 +104,21 @@ public class SaleController {
         bill.setTotalPrices(billDto.getTotalPrices());
         Bill billId = billRepository.save(bill);
 
-
-        System.out.println("billId: "+billId.getId());
+        System.out.println("billId: " + billId.getId());
         for (int i = 0; i < billDto.getProducts().size(); i++) {
 
-            Products products = new Products();
+            ProductDTO productDTO = new ProductDTO();
 
             ProductDetails productDetails = new ProductDetails();
-            products = billDto.getProducts().get(i);
+            productDTO = billDto.getProducts().get(i);
 
-            productDetails.setDetails(products.getDetails());
+            productDetails.setDetails(productDTO.getDetails());
 
-            productDetails.setPrice(products.getPrice());
-            productDetails.setProductId(products.getProductId());
-            productDetails.setQuantity(products.getQuantity());
+            productDetails.setPrice(productDTO.getPrice());
+            productDetails.setProductId(productDTO.getProductId());
+            productDetails.setQuantity(productDTO.getQuantity());
             productDetails.setBillId(billId.getId());
             System.out.println(productDetails.toString());
-
             productDetailsRepository.save(productDetails);
         }
 
@@ -110,11 +128,86 @@ public class SaleController {
         return billDto;
     }
 
+
     @GetMapping("/bill")
     @ResponseBody
-    public BillDto getBills(@RequestParam Long billId) {
+    @Transactional
+    @ApiOperation(value = "获取所有销售单", httpMethod = "GET", notes = "暂无")
+    public List<BillDto> getAllBills() {
+        List<Bill> billList = new ArrayList<Bill>();
+        List<BillDto> billDtoList = new ArrayList<BillDto>();
+        billList.addAll(billRepository.findAll());
+        for (int i = 0; i < billList.size(); i++) {
+            BillDto billDto = new BillDto();
+
+            billDto.setId(billList.get(i).getId());
+            billDto.setCustomerId(billList.get(i).getCustomerId());
+            billDto.setDetails(billList.get(i).getDetails());
+            billDto.setTotalPrices(billList.get(i).getTotalPrices());
+            List<ProductDetails> productDetails = new ArrayList<ProductDetails>();
+            productDetails.addAll(productDetailsRepository.findProductDetailsByBillId(billDto.getId()));
+            List<ProductDTO> productDTOList = new ArrayList<ProductDTO>();
+            for (int j = 0; j < productDetails.size(); j++) {
+                ProductDTO productDTO = new ProductDTO();
+
+                productDTO.setProductId(productDetails.get(j).getProductId());
+                productDTO.setDetails(productDetails.get(j).getDetails());
+                productDTO.setPrice(productDetails.get(j).getPrice());
+                productDTO.setQuantity(productDetails.get(j).getQuantity());
+
+                productDTOList.add(productDTO);
+            }
+
+            billDto.setProducts(productDTOList);
+            billDtoList.add(billDto);
+
+        }
+
+        return billDtoList;
+    }
+    @ApiOperation(value = "通过ID获取销售单", httpMethod = "GET", notes = "暂无")
+    @GetMapping(value = "/bill/{billId}")
+    @ResponseBody
+    @Transactional
+    public BillDto getBillById(@PathVariable Long billId) {
         BillDto billDto = new BillDto();
+        Bill bill = new Bill();
+
+        bill = billRepository.findOne(billId);
+
+
+        billDto.setId(bill.getId());
+        billDto.setCustomerId(bill.getCustomerId());
+        billDto.setDetails(bill.getDetails());
+        billDto.setTotalPrices(bill.getTotalPrices());
+        List<ProductDetails> productDetails = new ArrayList<ProductDetails>();
+        productDetails.addAll(productDetailsRepository.findProductDetailsByBillId(billDto.getId()));
+        List<ProductDTO> productDTOList = new ArrayList<ProductDTO>();
+        for (int j = 0; j < productDetails.size(); j++) {
+            ProductDTO productDTO = new ProductDTO();
+
+            productDTO.setProductId(productDetails.get(j).getProductId());
+            productDTO.setDetails(productDetails.get(j).getDetails());
+            productDTO.setPrice(productDetails.get(j).getPrice());
+            productDTO.setQuantity(productDetails.get(j).getQuantity());
+
+            productDTOList.add(productDTO);
+        }
+
+        billDto.setProducts(productDTOList);
+
+
         return billDto;
+    }
+
+    @ApiOperation(value = "通过ID删除销售单", httpMethod = "DELETE", notes = "暂无")
+    @DeleteMapping(value = "/bill/{billId}")
+    @ResponseBody
+    @Transactional
+    public void deleteBillById(@PathVariable Long billId) {
+
+        billRepository.delete(billId);
+        productDetailsRepository.deleteByBillId(billId);
     }
 
 }
