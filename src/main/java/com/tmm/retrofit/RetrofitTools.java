@@ -14,6 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -75,9 +76,9 @@ public class RetrofitTools {
                     break;
                 case ConfigValue.RequestMethod_DELETE:
                     this.method = "DELETE";
-                    if(requestDTO.getParameters().equals("")){
+                    if (requestDTO.getParameters().equals("")) {
                         this.requestCall = this.request.DELETE_NO_Parameters(this.requestDTO.getPath());
-                    }else {
+                    } else {
                         this.requestCall = this.request.DELETE(this.requestDTO.getPath(), requestDTO.getParameters());
                     }
 
@@ -128,7 +129,7 @@ public class RetrofitTools {
             System.out.println("Successful:\t" + this.re.isSuccessful());
             System.out.println("Message:\t" + this.re.message());
 
-            if (requestDTO.getRequestMethod() != 4) {
+            if (requestDTO.getRequestMethod() != 4||requestDTO.getRequestMethod() != 3) {
                 System.out.println("Body:\t" + this.re.body());
                 responseInfoDTO.setBody(this.re.body());
             }
@@ -179,5 +180,22 @@ public class RetrofitTools {
         return msg;
     }
 
+
+    public Map<String, Object> stringToMap(String s) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String[] str = s.split(";");
+        if (str[str.length - 1].equals(";")) {
+            str[s.length() - 1].replace(";", "");
+        }
+        for (int i = 0; i < str.length; i++) {
+            System.out.println(str[i]);
+
+            //System.out.println(str[i].substring(0,str[i].indexOf("=")));
+            //System.out.println(str[i].substring(str[i].indexOf("=")+1));
+            map.put(str[i].substring(0, str[i].indexOf("=")), str[i].substring(str[i].indexOf("=") + 1));
+
+        }
+        return map;
+    }
 
 }

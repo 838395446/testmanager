@@ -11,195 +11,270 @@
     <schema id="5" parent="1" name="performance_schema"/>
     <schema id="6" parent="1" name="school"/>
     <schema id="7" parent="1" name="sys"/>
-    <table id="8" parent="2" name="bill"/>
-    <table id="9" parent="2" name="customer"/>
-    <table id="10" parent="2" name="product"/>
-    <table id="11" parent="2" name="product_details"/>
-    <table id="12" parent="2" name="test_case"/>
-    <table id="13" parent="2" name="test_group"/>
-    <table id="14" parent="2" name="test_project"/>
-    <column id="15" parent="8" name="id">
+    <table id="8" parent="2" name="base_url"/>
+    <table id="9" parent="2" name="bill"/>
+    <table id="10" parent="2" name="customer"/>
+    <table id="11" parent="2" name="interface"/>
+    <table id="12" parent="2" name="product"/>
+    <table id="13" parent="2" name="product_details"/>
+    <table id="14" parent="2" name="test_group"/>
+    <table id="15" parent="2" name="test_project"/>
+    <column id="16" parent="8" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="8" name="details">
+    <column id="17" parent="8" name="baseurl">
       <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(1000)|0</DataType>
     </column>
-    <column id="17" parent="8" name="total_prices">
+    <column id="18" parent="8" name="comment">
       <Position>3</Position>
-      <DataType>decimal(19,2)|0</DataType>
+      <DataType>varchar(2000)|0</DataType>
     </column>
-    <column id="18" parent="8" name="customer_id">
+    <column id="19" parent="8" name="create_date">
       <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="20" parent="8" name="create_time">
+      <Position>5</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="21" parent="8" name="group_id">
+      <Position>6</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <key id="19" parent="8" name="PRIMARY">
+    <column id="22" parent="8" name="last_update_date">
+      <Position>7</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="23" parent="8" name="last_update_time">
+      <Position>8</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="24" parent="8" name="project_id">
+      <Position>9</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="25" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="20" parent="9" name="id">
+    <column id="26" parent="9" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="21" parent="9" name="comment">
+    <column id="27" parent="9" name="details">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="22" parent="9" name="name">
+    <column id="28" parent="9" name="total_prices">
+      <Position>3</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="29" parent="9" name="customer_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="30" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="10" name="comment">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="33" parent="10" name="name">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="23" parent="9" name="tel">
+    <column id="34" parent="10" name="tel">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="24" parent="9" name="PRIMARY">
+    <key id="35" parent="10" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="25" parent="10" name="id">
+    <column id="36" parent="11" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="26" parent="10" name="comment">
+    <column id="37" parent="11" name="baseurl_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(1000)|0</DataType>
     </column>
-    <column id="27" parent="10" name="name">
+    <column id="38" parent="11" name="comment">
       <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(2000)|0</DataType>
     </column>
-    <column id="28" parent="10" name="price">
+    <column id="39" parent="11" name="create_date">
       <Position>4</Position>
-      <DataType>decimal(19,2)|0</DataType>
+      <DataType>date|0</DataType>
     </column>
-    <key id="29" parent="10" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="30" parent="11" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="31" parent="11" name="details">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="32" parent="11" name="price">
-      <Position>3</Position>
-      <DataType>decimal(19,2)|0</DataType>
-    </column>
-    <column id="33" parent="11" name="product_id">
-      <Position>4</Position>
-      <DataType>bigint(20)|0</DataType>
-    </column>
-    <column id="34" parent="11" name="quantity">
+    <column id="40" parent="11" name="create_time">
       <Position>5</Position>
-      <DataType>decimal(19,2)|0</DataType>
+      <DataType>time|0</DataType>
     </column>
-    <column id="35" parent="11" name="bill_id">
+    <column id="41" parent="11" name="last_update_date">
       <Position>6</Position>
-      <DataType>bigint(20)|0</DataType>
+      <DataType>date|0</DataType>
     </column>
-    <key id="36" parent="11" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="37" parent="12" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="38" parent="12" name="comment">
-      <Position>2</Position>
-      <DataType>varchar(5000)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="39" parent="12" name="group_id">
-      <Position>3</Position>
-      <DataType>bigint(20)|0</DataType>
-    </column>
-    <column id="40" parent="12" name="input_value">
-      <Position>4</Position>
-      <DataType>varchar(5000)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="41" parent="12" name="interface_url">
-      <Position>5</Position>
-      <DataType>varchar(5000)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="42" parent="12" name="output_value">
-      <Position>6</Position>
-      <DataType>varchar(5000)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="43" parent="12" name="title">
+    <column id="42" parent="11" name="last_update_time">
       <Position>7</Position>
-      <DataType>varchar(500)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>time|0</DataType>
     </column>
-    <key id="44" parent="12" name="PRIMARY">
+    <column id="43" parent="11" name="project_id">
+      <Position>8</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="44" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="45" parent="13" name="id">
+    <column id="45" parent="12" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="46" parent="13" name="comment">
+    <column id="46" parent="12" name="comment">
       <Position>2</Position>
-      <DataType>varchar(2000)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="47" parent="13" name="project_id">
+    <column id="47" parent="12" name="name">
       <Position>3</Position>
-      <DataType>bigint(20)|0</DataType>
+      <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="48" parent="13" name="title">
+    <column id="48" parent="12" name="price">
       <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>decimal(19,2)|0</DataType>
     </column>
-    <key id="49" parent="13" name="PRIMARY">
+    <key id="49" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="50" parent="14" name="id">
+    <column id="50" parent="13" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="51" parent="14" name="comment">
+    <column id="51" parent="13" name="details">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="52" parent="13" name="price">
+      <Position>3</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="53" parent="13" name="product_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="54" parent="13" name="quantity">
+      <Position>5</Position>
+      <DataType>decimal(19,2)|0</DataType>
+    </column>
+    <column id="55" parent="13" name="bill_id">
+      <Position>6</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="56" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="14" name="comment">
+      <Position>2</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="59" parent="14" name="project_id">
+      <Position>8</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="60" parent="14" name="title">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="61" parent="14" name="create_date">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="62" parent="14" name="create_time">
+      <Position>4</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="63" parent="14" name="last_update_date">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="64" parent="14" name="last_update_time">
+      <Position>6</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="65" parent="14" name="parameters">
+      <Position>7</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <key id="66" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="67" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="68" parent="15" name="comment">
       <Position>2</Position>
       <DataType>varchar(2000)|0</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="14" name="title">
+    <column id="69" parent="15" name="title">
+      <Position>7</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="70" parent="15" name="create_date">
       <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>date|0</DataType>
     </column>
-    <key id="53" parent="14" name="PRIMARY">
+    <column id="71" parent="15" name="create_time">
+      <Position>4</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <column id="72" parent="15" name="last_update_date">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="73" parent="15" name="last_update_time">
+      <Position>6</Position>
+      <DataType>time|0</DataType>
+    </column>
+    <key id="74" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
