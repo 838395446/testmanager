@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.ico">
+
+    <title>接口测试平台-项目列表</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="./css/cikonss.css" />
+</head>
+
+<body>
+    <style type="text/css">
+        .out_div {
+            width: 500px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background-color: #ccc;
+        }
+        
+        .in_div {
+            width: 150px;
+            height: 100px;
+            float: left;
+            margin: 5px;
+            background-color: blue;
+        }
+    </style>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#">接口测试平台</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">主页</a></li>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#contact">统计</a></li>
+                        <li><a href="#contact">设定</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">项目</a></li>
+                                <li><a href="#">组</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">其他</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li><a href="#" class="btn">新建用例</a></li>
+                        <li><a href="#" class="button">搜索</a></li>
+                    </ul>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li><a href="#">其他</a></li>
+                </ul>
+
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li><a href="#">全部</a></li>
+            <li><a href="#">项目</a></li>
+            <li class="active">组</li>
+        </ol>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="GROUP.changeModalWordToAdd(myModalLabel,myModalButton)"><span class="glyphicon glyphicon-plus"></span> 新建</button>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="GROUP.changeModalWordToUpdate(myModalLabel,myModalButton)"><span class="glyphicon glyphicon-pencil"></span> 修改</button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>选择</th>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>用例</th>
+                            <th>所属项目</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>未分组</td>
+                            <td>添加销售单</td>
+                            <td>56</td>
+                            <td>火车票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>销售单</td>
+                            <td>添加，删除，修改销售单</td>
+                            <td>400</td>
+                            <td>火车票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>预定酒店</td>
+                            <td>添加订单，修改订单，删除订单</td>
+                            <td>27</td>
+                            <td>酒店</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Tanmay</td>
+                            <td>Bangalore</td>
+                            <td>560001</td>
+                            <td>酒店</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Sachin</td>
+                            <td>Mumbai</td>
+                            <td>400003</td>
+                            <td>飞机票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Uma</td>
+                            <td>Pune</td>
+                            <td>411027</td>
+                            <td>飞机票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Tanmay</td>
+                            <td>Bangalore</td>
+                            <td>560001</td>
+                            <td>飞机票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Sachin</td>
+                            <td>Mumbai</td>
+                            <td>400003</td>
+                            <td>飞机票</td>
+                            <td>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-pencil">修改</span>
+                                </a>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-remove">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+
+
+                        <tr onclick="alert('adasdf')">
+                            <td>
+                                <input type="checkbox">
+                            </td>
+                            <td>Uma</td>
+                            <td>Pune</td>
+                            <td>411027</td>
+                            <td>飞机票</td>
+                            <td>
+                                <a href=" # ">
+                                    <span class="glyphicon glyphicon-pencil ">修改</span>
+                                </a>
+                                <a href="# ">
+                                    <span class="glyphicon glyphicon-remove ">删除</span>
+                                </a>
+                            </td>
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+        <div class="pagination ">
+
+            <li><a href="# ">&laquo;</a></li>
+            <li class="active "><a href="# ">1</a></li>
+            <li class="disabled "><a href="# ">2</a></li>
+            <li><a href="# ">3</a></li>
+            <li><a href="# ">4</a></li>
+            <li><a href="# ">5</a></li>
+            <li><a href="# ">&raquo;</a></li>
+
+
+        </div>
+
+    </div>
+
+    <footer class="footer ">
+        <div class="container ">
+            <p class="text-muted ">接口测试专用 By Captain Wang</p>
+        </div>
+    </footer>
+
+
+
+    <!-- 模态框-->
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">新建用例组</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">组名称：</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="组名称">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">描述：</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="描述">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">所属项目：</label>
+                            <div class="col-sm-10">
+                                <select class="form-control">
+                                <option>Action: http://locahost:8080</option>
+                                <option>Another action: http://locahost:8080</option>
+                                <option>Something else here: http://locahost:8080</option>
+                                <option>Separated link : http://locahost:8080</option>
+                            </select>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="myModalButton">提交更改</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script>
+        window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js "><\/script>')
+    </script>
+    <script src="./js/bootstrap.min.js "></script>
+    <script src="./js/tmmjs.js "></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js "></script>
+</body>
+
+</html>

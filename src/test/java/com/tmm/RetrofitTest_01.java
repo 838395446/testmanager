@@ -78,7 +78,7 @@ public class RetrofitTest_01 {
         baseUrl.setLastUpdateDate(new Date());
         baseUrl.setCreateTime(new Date());
         baseUrl.setLastUpdateTime(new Date());
-        baseUrl.setGroupId(100001L);
+
         baseUrl.setProjectId(100001L);
 
 

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.ico">
+
+    <title>首页-接口测试平台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="./css/cikonss.css" />
+</head>
+
+<body>
+    <style type="text/css">
+        .out_div {
+            width: 500px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background-color: #ccc;
+        }
+        
+        .in_div {
+            width: 150px;
+            height: 100px;
+            float: left;
+            margin: 5px;
+            background-color: blue;
+        }
+    </style>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#">接口测试平台</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">主页</a></li>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#contact">统计</a></li>
+                        <li><a href="#contact">设定</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">项目</a></li>
+                                <li><a href="#">组</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">其他</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li><a href="#" class="btn">新建用例</a></li>
+                        <li><a href="#" class="button">搜索</a></li>
+                    </ul>
+                </div>
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li><a href="#">其他</a></li>
+                </ul>
+
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li><a href="#">全部</a></li>
+        </ol>
+
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 项目</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">新建</a></li>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title 	glyphicon glyphicon-list"> 用例组</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">新建</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 服务地址</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">新建</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 接口地址</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">新建</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 测试用例</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">新建</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 测试记录</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看列表</a></li>
+                            <li><a class="glyphicon glyphicon-search">分析</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="panel panel-info ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 执行测试用例</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-play">手动执行</a></li>
+                            <li><a class="	glyphicon glyphicon-record">定时执行</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 系统设置</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-play">手动执行</a></li>
+                            <li><a class="	glyphicon glyphicon-record">定时执行</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <div class="panel panel-warning ">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> Cookie管理</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">查看Cookie列表</a></li>
+                            <li><a class="glyphicon glyphicon-plus">添加Cookie</a></li>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title glyphicon glyphicon-list"> 用户管理</h3>
+                        </div>
+                        <div class="panel-body">
+                            <li><a class="glyphicon glyphicon-search">添加测试人员</a></li>
+                            <li><a class="glyphicon glyphicon-user">人员列表</a></li>
+                            <li><a class="glyphicon glyphicon-pushpin">权限管理</a></li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">接口测试专用</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

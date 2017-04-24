@@ -21,8 +21,6 @@ public class BaseUrl {
 
     private Long projectId;
 
-    private Long groupId;
-
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
@@ -42,7 +40,6 @@ public class BaseUrl {
         this.comment = comment;
         this.baseurl = baseurl;
         this.projectId = projectId;
-        this.groupId = groupId;
         this.createDate = createDate;
         this.lastUpdateDate = lastUpdateDate;
         this.createTime = createTime;
@@ -81,14 +78,6 @@ public class BaseUrl {
         this.projectId = projectId;
     }
 
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
@@ -119,5 +108,19 @@ public class BaseUrl {
 
     public void setLastUpdateTime(Date lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseUrl{" +
+                "id=" + id +
+                ", comment='" + comment + '\'' +
+                ", baseurl='" + baseurl + '\'' +
+                ", projectId=" + projectId +
+                ", createDate=" + createDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", createTime=" + createTime +
+                ", lastUpdateTime=" + lastUpdateTime +
+                '}';
     }
 }

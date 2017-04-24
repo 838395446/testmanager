@@ -6,16 +6,14 @@ import com.tmm.service.ProductDetailsRepository;
 import com.tmm.service.ProductRepository;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Created by Captain Wang on 17/4/18.
  */
 
-@RestController
+@Controller
 public class TestManagerController {
 
     private Gson gson = new Gson();
@@ -29,9 +27,16 @@ public class TestManagerController {
     private ProductDetailsRepository productDetailsRepository;
 
     //
-    @PostMapping("/123")
-    @ResponseBody
-    @ApiOperation(value = "添加商品", httpMethod = "POST", notes = "暂无")
-    public void addProduct(@RequestBody String body) {}
+    @GetMapping(value = "/")
+    @ApiOperation(value = "平台首页", httpMethod = "GET", notes = "暂无")
+    public String returnIndex() {
+        return "index.html";
+    }
+
+    @GetMapping(value = "/addproject")
+    @ApiOperation(value = "添加项目", httpMethod = "GET", notes = "暂无")
+    public String addProject() {
+        return "project_add.html";
+    }
 
 }

@@ -1,7 +1,6 @@
 package com.tmm.web;
 
 import com.google.gson.Gson;
-import com.tmm.domain.BaseUrl;
 import com.tmm.domain.Bill;
 import com.tmm.domain.Product;
 import com.tmm.domain.ProductDetails;
@@ -217,13 +216,6 @@ public class SaleController {
     }
 
 
-    @ApiOperation(value = "添加BaseURL", httpMethod= "POST", notes = "暂无")
-    @PostMapping(value = "/baseurl")
-    @ResponseBody
-    @Transactional
-    public BaseUrl deleteBillById(@RequestBody BaseUrl baseUrl) {
 
-        return baseUrlRepository.save(baseUrl);
-    }
 
 }

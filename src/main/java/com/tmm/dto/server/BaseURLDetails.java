@@ -20,9 +20,6 @@ public class BaseURLDetails {
 
     private Long projectId;
 
-    private Long groupId;
-
-
     private Date createDate;
 
 
@@ -44,7 +41,6 @@ public class BaseURLDetails {
         this.comment = comment;
         this.baseurl = baseurl;
         this.projectId = projectId;
-        this.groupId = groupId;
         this.createDate = createDate;
         this.lastUpdateDate = lastUpdateDate;
         this.createTime = createTime;
@@ -84,13 +80,6 @@ public class BaseURLDetails {
         this.projectId = projectId;
     }
 
-    public Long getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
-    }
 
     public Date getCreateDate() {
         return createDate;

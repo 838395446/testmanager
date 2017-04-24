@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./favicon.ico">
+
+    <title>添加项目-接口测试平台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <link rel="stylesheet" href="./css/cikonss.css" />
+</head>
+
+<body>
+    <style type="text/css">
+        .out_div {
+            width: 500px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background-color: #ccc;
+        }
+        
+        .in_div {
+            width: 150px;
+            height: 100px;
+            float: left;
+            margin: 5px;
+            background-color: blue;
+        }
+    </style>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#">接口测试平台</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">主页</a></li>
+                        <li><a href="#about">关于</a></li>
+                        <li><a href="#contact">统计</a></li>
+                        <li><a href="#contact">设定</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">项目</a></li>
+                                <li><a href="#">组</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">其他</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li><a href="#" class="btn">新建用例</a></li>
+                        <li><a href="#" class="button">搜索</a></li>
+                    </ul>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li><a href="#">其他</a></li>
+                </ul>
+
+
+            </div>
+            <!--/.nav-collapse -->
+
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li><a href="#">全部</a></li>
+            <li><a href="#">项目</a></li>
+            <!--<li class="active">组</li>-->
+        </ol>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <span class="panel-title">添加项目</span>
+
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <!-- title-->
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">标题：</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="标题">
+                        </div>
+                    </div>
+
+
+                    <!-- 描述-->
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">描述：</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="描述">
+                        </div>
+                    </div>
+
+                    <!-- 服务地址-->
+                    <div class="form-group ">
+                        <label for="inputEmail3" class="col-sm-2 control-label ">服务地址：</label>
+                        <div class="col-sm-6 ">
+                            <label class="col-sm-2 control-label " align=" left "><span >个数：18</span></label>
+                        </div>
+
+                        <div class="col-sm-4 " align=" right ">
+
+                            <label class="control-label "><a href="# "><span class="glyphicon glyphicon-search ">查看&编辑 </span></a></label>
+                            <label class="control-label " onclick="PROJECT.showByPath('#serverPath_1,#serverPath_2')"><a href="# "><span class="glyphicon glyphicon-plus " >添加 </span></a></label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="serverPath_1">
+                        <label for="inputEmail3" class="col-sm-2 control-label " onclick="PROJECT.hiddenByPath('#serverPath_1,#serverPath_2')"> 地址：</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="col-sm-9 form-control " id="inputEmail3" placeholder="地址">
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label" onclick="PROJECT.hiddenByPath('#serverPath_1,#serverPath_2')"><a href="# "><span class=" glyphicon glyphicon-remove">取消</span></a></label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="serverPath_2">
+                        <label for="inputEmail3" class="col-sm-2 control-label "> 描述：</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control " id="inputEmail3" placeholder="描述：">
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="btn btn-primary ">提交</button>
+                        </div>
+                    </div>
+
+
+
+                    <!-- 接口地址列表-->
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">接口地址：</label>
+                        <div class="col-sm-6">
+                            <label class="col-sm-2 control-label">个数：18</label>
+                        </div>
+                        <div class="col-sm-4" align=" right ">
+                            <label class="control-label"><a href="#"><span class="glyphicon glyphicon-search" >查看&编辑 </span></a></label>
+
+                            <label class="control-label" onclick="PROJECT.showByPath('#apiPath_1,#apiPath_2,#apiPath_3')"><a href="#"><span class="glyphicon glyphicon-plus">添加 </span></a></label>
+                            <p></p>
+
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="apiPath_1">
+                        <label for="inputEmail3" class="col-sm-2 control-label "> 所属服务地址：</label>
+                        <div class="col-sm-9">
+                            <select class="form-control">
+                                <option>Action: http://locahost:8080</option>
+                                <option>Another action: http://locahost:8080</option>
+                                <option>Something else here: http://locahost:8080</option>
+                                <option>Separated link : http://locahost:8080</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label" onclick="PROJECT.hiddenByPath('#apiPath_1,#apiPath_2,#apiPath_3')"><a href="# "><span class=" glyphicon glyphicon-remove">取消</span></a></label>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="apiPath_2">
+                        <label for="inputEmail3" class="col-sm-2 control-label"> 地址：</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="地址">
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="apiPath_3">
+                        <label for="inputEmail3" class="col-sm-2 control-label "> 描述：</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control " id="inputEmail3" placeholder="描述：">
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="btn btn-primary ">提交</button>
+                        </div>
+                    </div>
+                    <!-- 提交-->
+                    <div class="alert alert-success ">成功！很好地完成了提交。</div>
+                    <div class="alert alert-info ">信息！请注意这个信息。</div>
+                    <div class="alert alert-warning ">警告！请不要提交。</div>
+                    <div class="alert alert-danger ">错误！请进行一些更改。</div>
+                    <div align=" right ">
+                        <button class="btn btn-primary ">编辑</button>
+                        <button class="btn btn-default ">取消</button>
+
+                    </div>
+            </div>
+        </div>
+
+
+    </div>
+    <footer class="footer ">
+        <div class="container ">
+            <p class="text-muted ">接口测试专用 By Captain Wang</p>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script>
+        window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js "><\/script>')
+    </script>
+    <script src="./js/bootstrap.min.js "></script>
+    <script src="./js/tmmjs.js "></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js "></script>
+</body>
+
+</html>
