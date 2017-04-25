@@ -12,13 +12,16 @@ public class Interface {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(length = 1000)
+    private String apiPath;
+
 
     @Column(length = 2000)
 
     private String comment;
 
-    @Column(length = 1000)
-    private String baseurlId;
+    private Long baseUrlId;
+
 
     private Long projectId;
 
@@ -38,10 +41,10 @@ public class Interface {
     public Interface() {
     }
 
-    public Interface(Long id, String comment, String baseurlId, Long projectId, Date createDate, Date lastUpdateDate, Date createTime, Date lastUpdateTime) {
+    public Interface(Long id, String comment, String apiPath, Long projectId, Date createDate, Date lastUpdateDate, Date createTime, Date lastUpdateTime) {
         this.id = id;
         this.comment = comment;
-        this.baseurlId = baseurlId;
+        this.apiPath = apiPath;
         this.projectId = projectId;
         this.createDate = createDate;
         this.lastUpdateDate = lastUpdateDate;
@@ -65,12 +68,12 @@ public class Interface {
         this.comment = comment;
     }
 
-    public String getBaseurlId() {
-        return baseurlId;
+    public String getApiPath() {
+        return apiPath;
     }
 
-    public void setBaseurlId(String baseurlId) {
-        this.baseurlId = baseurlId;
+    public void setApiPath(String apiPath) {
+        this.apiPath = apiPath;
     }
 
     public Long getProjectId() {
@@ -111,6 +114,29 @@ public class Interface {
 
     public void setLastUpdateTime(Date lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Long getBaseUrlId() {
+        return baseUrlId;
+    }
+
+    public void setBaseUrlId(Long baseUrlId) {
+        this.baseUrlId = baseUrlId;
+    }
+
+    @Override
+    public String toString() {
+        return "Interface{" +
+                "id=" + id +
+                ", apiPath='" + apiPath + '\'' +
+                ", comment='" + comment + '\'' +
+                ", baseUrlId=" + baseUrlId +
+                ", projectId=" + projectId +
+                ", createDate=" + createDate +
+                ", lastUpdateDate=" + lastUpdateDate +
+                ", createTime=" + createTime +
+                ", lastUpdateTime=" + lastUpdateTime +
+                '}';
     }
 }
 /**
