@@ -52,48 +52,48 @@
     }
 </style>
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top ">
-    <div class="container ">
-        <div class="navbar-header ">
-            <button type="button " class="navbar-toggle collapsed " data-toggle="collapse " data-target="#navbar " aria-expanded="false " aria-controls="navbar ">
-                <span class="sr-only ">Toggle navigation</span>
-                <span class="icon-bar "></span>
-                <span class="icon-bar "></span>
-                <span class="icon-bar "></span>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand " href="# ">接口测试平台</a>
+            <a class="navbar-brand" href="#">接口测试平台</a>
         </div>
-        <div id="navbar " class="collapse navbar-collapse ">
+        <div id="navbar" class="collapse navbar-collapse">
             <div>
-                <ul class="nav navbar-nav ">
-                    <li><a href="# ">主页</a></li>
-                    <li><a href="# ">项目</a></li>
-                    <li class="active "><a href="# ">接口</a></li>
-                    <li><a href="# ">用例</a></li>
-                    <li><a href="#contact ">设定</a></li>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">项目</a></li>
+                    <li class="active"><a href="#">接口</a></li>
+                    <li><a href="#">用例</a></li>
+                    <li><a href="#contact">设定</a></li>
 
-                    <li class="dropdown ">
-                        <a href="# " class="dropdown-toggle " data-toggle="dropdown " role="button " aria-haspopup="true " aria-expanded="false ">查询<span class="caret "></span></a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询<span class="caret"></span></a>
                         <ul class="dropdown-menu ">
-                            <li><a href="# ">项目</a></li>
-                            <li><a href="# ">组</a></li>
-                            <li><a href="# ">其他</a></li>
-                            <li role="separator " class="divider "></li>
-                            <li class="dropdown-header ">Nav header</li>
-                            <li><a href="# ">其他</a></li>
+                            <li><a href="#">项目</a></li>
+                            <li><a href="#">组</a></li>
+                            <li><a href="#">其他</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">其他</a></li>
 
 
                         </ul>
                     </li>
 
-                    <li><a href="# " class="button ">新建用例</a></li>
-                    <li><a href="# " class="button ">搜索</a></li>
+                    <li><a href="#" class="button">新建用例</a></li>
+                    <li><a href="#" class="button">搜索</a></li>
                 </ul>
             </div>
 
-            <ul class="nav navbar-nav navbar-right hidden-sm ">
-                <li><a href="# ">关于</a></li>
-                <li><a href="# ">其他</a></li>
+            <ul class="nav navbar-nav navbar-right hidden-sm">
+                <li><a href="#">关于</a></li>
+                <li><a href="#">其他</a></li>
 
             </ul>
 
@@ -105,26 +105,26 @@
 </nav>
 
 <!-- Begin page content -->
-<div class="container ">
+<div class="container">
 
-    <ol class="breadcrumb ">
-        <li><a href="# ">全部</a></li>
-        <li><a href="# " id="projectId ">项目</a></li>
-        <li class="active ">接口列表</li>
+    <ol class="breadcrumb">
+        <li><a href="#">全部</a></li>
+        <li><a href="#" id="projectId">项目</a></li>
+        <li class="active">接口列表</li>
     </ol>
     <ul class="nav nav-tabs ">
-        <li id="baseUrlLi " class="active "><a href="# " id="baseUrl " onclick="APIPATH.selectAddBaseurlType() ">BaseURL</a></li>
-        <li id="apiLi " class=" "><a href="# " id="apilist " onclick="APIPATH.selectAddApiType() ">接口地址</a></li>
+        <li id="baseUrlLi" class="active"><a href="# " id="baseUrl" onclick="APIPATH.selectAddBaseurlType()">BaseURL</a></li>
+        <li id="apiLi" class=""><a href="# " id="apilist" onclick="APIPATH.selectAddApiType()">接口地址</a></li>
     </ul>
-    <div class="panel panel-info ">
-        <div class="panel-heading ">
+    <div class="panel panel-info">
+        <div class="panel-heading">
 
-            <button type="button " id="addButton " name="baseURL " class="btn btn-default " data-toggle="modal " data-target="#myModal " onclick="APIPATH.getProjectListByAjax( '#selectProject') "><span class="glyphicon glyphicon-plus "></span> 新建</button>
+            <button type="button" id="addButton" name="baseURL" class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="APIPATH.getProjectListByAjax( '#selectProject')"><span class="glyphicon glyphicon-plus"></span> 新建</button>
 
 
         </div>
-        <div class="panel-body " id="tableBody ">
-            <table class="table table-hover ">
+        <div class="panel-body" id="tableBody">
+            <table class="table table-hover">
 
                 <thead>
                 <tr>
@@ -136,7 +136,7 @@
                     <th>操作</th>
                 </tr>
                 </thead>
-                <tbody id="tableValue ">
+                <tbody id="tableValue">
                 </tbody>
             </table>
 
@@ -144,24 +144,24 @@
     </div>
 
 
-    <div class="pagination ">
+    <div class="pagination">
 
         <li><a href="# ">&laquo;</a></li>
-        <li class="active "><a href="# ">1</a></li>
-        <li class="disabled "><a href="# ">2</a></li>
-        <li><a href="# ">3</a></li>
-        <li><a href="# ">4</a></li>
-        <li><a href="# ">5</a></li>
-        <li><a href="# ">&raquo;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li class="disabled"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
 
 
     </div>
 
 </div>
 
-<footer class="footer ">
-    <div class="container ">
-        <p class="text-muted ">接口测试专用 By <a href="mailto:2935689885@qq.com "><span >  <label> Captain Wang </label><label class="glyphicon glyphicon-earphone "></label></span></a></p>
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">接口测试专用 By <a href="mailto:2935689885@qq.com"><span >  <label> Captain Wang </label><label class="glyphicon glyphicon-earphone "></label></span></a></p>
     </div>
 </footer>
 
@@ -169,33 +169,34 @@
 
 <!-- 模态框-->
 <!-- 模态框（Modal） -->
-<div class="modal fade " id="myModal " tabindex="-1 " role="dialog " aria-labelledby="myModalLabel " aria-hidden="true ">
-    <div class="modal-dialog ">
-        <div class="modal-content ">
-            <div class="modal-header ">
-                <button type="button " class="close " data-dismiss="modal " aria-hidden="true ">&times;</button>
-                <h4 class="modal-title " id="myModalLabel " onclick="APIPATH.getSelectOption() ">新建</h4>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel" onclick="APIPATH.getSelectOption()">新建</h4>
             </div>
-            <div class="modal-body ">
-                <form class="form-horizontal ">
-                    <div class="form-group ">
-                        <label for="inputEmail3 " class="col-sm-2 control-label " id="baseurlTitle ">BaseURL：</label>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label" id="baseurlTitle">BaseURL：</label>
                         <div class="col-sm-10 ">
-                            <input type="email " class="form-control " id="pathInput " placeholder="BaseURL ">
+                            <input type="email" class="form-control" id="pathInput" placeholder="BaseURL">
                         </div>
                     </div>
 
-                    <div class="form-group ">
-                        <label for="inputEmail3 " class="col-sm-2 control-label ">描述：</label>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">描述：</label>
                         <div class="col-sm-10 ">
-                            <input type="email " class="form-control " id="inputComment " placeholder="描述 ">
+                            <input type="email" class="form-control" id="inputComment" placeholder="描述 ">
                         </div>
                     </div>
 
-                    <div class="form-group ">
-                        <label for="inputEmail3 " class="col-sm-2 control-label ">所属项目：</label>
-                        <div class="col-sm-10 ">
-                            <select class="form-control " id="selectProject ">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">所属项目：</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="selectProject">
                                 <option>空</option>
 
                             </select>
@@ -207,8 +208,8 @@
 
             </div>
             <div class="modal-footer ">
-                <button type="button " class="btn btn-default " data-dismiss="modal ">关闭</button>
-                <button type="button " class="btn btn-primary " id="myModalButton " onclick="APIPATH.addBaseUrl(); ">提交</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="myModalButton" onclick="APIPATH.addBaseUrl();">提交</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -219,14 +220,14 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./js/jquery-3.2.1.min.js "></script>
+<script src="./assets/js/vendor/jquery.min.js"></script>
 <script>
-    window.jQuery || document.write('\<script src="./assets/js/vendor/jquery.min.js ">\<\/script>')
+    window.jQuery || document.write('\<script src="./assets/js/vendor/jquery.min.js">\<\/script>')
 </script>
-<script src="./js/bootstrap.min.js "></script>
-<script src="./js/tmmjs.js "></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/tmmjs.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="./assets/js/ie10-viewport-bug-workaround.js "></script>
+<script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
 
 </body>
 

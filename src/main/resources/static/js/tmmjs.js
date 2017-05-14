@@ -41,7 +41,7 @@ ADDCASE.setMethod2 = function(id) {
             alert($(this).text);
             $(this).attr('class', 'active');
         }
-        debugger;
+
     }
 
 }
@@ -86,7 +86,7 @@ ADDCASE.changeMethodButtonToPrimary = function(id) {
             elems.map(function(index, value) {
                 $(value).removeClass('active', 'btn btn-default');
             });
-            debugger;
+
             $(e.target).parent().attr('class', 'btn btn-primary active');
         }
     }
@@ -449,6 +449,10 @@ APIPATH.addBaseUrlByPost = function(jsonData) {
             } else if (XMLHttpRequest.status == 500) {
                 alert("服务器异常！");
             }
+            if (XMLHttpRequest.status == 200) {
+                //修改成功后关闭模态框
+                $('#myModal').modal('hide');
+            }
         }
     });
 }
@@ -484,6 +488,10 @@ APIPATH.addApiByPost = function(jsonData) {
 
             } else if (XMLHttpRequest.status == 500) {
                 alert("服务器异常！");
+            }
+            if (XMLHttpRequest.status == 200) {
+                //修改成功后关闭模态框
+                $('#myModal').modal('hide');
             }
         }
     });
@@ -606,10 +614,9 @@ APIPATH.drewTablesByBaseUrl = function(data, tableBody, tableValue) {
 
         });
 
-        debugger;
-        alert(table_code);
+        $('#tableValue ').append(table_code);
+        $('#tableValue ').html(table_code);
 
-        $(tableValue).html(table_code);
     }
 }
 

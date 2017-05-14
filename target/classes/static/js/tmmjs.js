@@ -41,7 +41,7 @@ ADDCASE.setMethod2 = function(id) {
             alert($(this).text);
             $(this).attr('class', 'active');
         }
-        debugger;
+
     }
 
 }
@@ -86,7 +86,7 @@ ADDCASE.changeMethodButtonToPrimary = function(id) {
             elems.map(function(index, value) {
                 $(value).removeClass('active', 'btn btn-default');
             });
-            debugger;
+
             $(e.target).parent().attr('class', 'btn btn-primary active');
         }
     }
@@ -141,10 +141,10 @@ PROJECT.showByPath = function(ids) {
 
     }
     /**
-    $(id1).attr('style', '');
-    $(id2).attr('style', '');
-    $(id3).attr('style', '');
-    */
+     $(id1).attr('style', '');
+     $(id2).attr('style', '');
+     $(id3).attr('style', '');
+     */
 }
 
 PROJECT.hiddenByPath = function(ids) {
@@ -161,27 +161,27 @@ PROJECT.getProjectListByAjax = function(tableBody, tableValue) {
 
 
 
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/project", //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             PROJECT.drewTables(data, tableBody, tableValue);
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');　　　　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');
             } else if (XMLHttpRequest.status == 500) {
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');　　
-            }　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');
+            }
         }
     });
 
@@ -248,22 +248,22 @@ GROUP.changeModalWordToUpdate = function(id_1, id_2) {
 
 GROUP.addGroup = function(pathId, id_1, id_2) {
     GROUP.changeModalWordToAdd(id_1, id_2);
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/project", //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             GROUP.drewTables(data, pathId);
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
             }
         }
@@ -285,27 +285,27 @@ GROUP.drewTables = function(data, pathId) {
 
 
 GROUP.getBaseurlListByAjax = function(tableBody, tableValue) {
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/baseurl", //请求的URL
-        　　 //timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        //timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             GROUP.drewTables(data, tableBody, tableValue);
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');　　　　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');
             } else if (XMLHttpRequest.status == 500) {
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');　　
-            }　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');
+            }
         }
     });
 
@@ -365,26 +365,26 @@ APIPATH.getProjectListByAjax = function(pathId) {
     $('#pathInput').val('');
     $('#inputComment').val('');
     $('#myModalButton').attr("onclick", "APIPATH.addBaseUrl()");
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/project", //请求的URL
-        　　 //timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        //timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             APIPATH.drewAddButtonProjectList(data, pathId);
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
-                alert("请求超时");　　　
-            } else if (XMLHttpRequest.status == 500) {　
-                alert("服务器故障！");　　　
-            }　
+
+                ajaxTimeoutTest.abort();
+                alert("请求超时");
+            } else if (XMLHttpRequest.status == 500) {
+                alert("服务器故障！");
+            }
         }
     });
 
@@ -440,21 +440,25 @@ APIPATH.addBaseUrlByPost = function(jsonData) {
             APIPATH.getBaseurlListByAjax('#tableBody', '#tableValue');
             //location.reload();
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
 
             } else if (XMLHttpRequest.status == 500) {
-                alert("服务器异常！");　　
+                alert("服务器异常！");
             }
-        }　
+            if (XMLHttpRequest.status == 200) {
+                //修改成功后关闭模态框
+                $('#myModal').modal('hide');
+            }
+        }
     });
 }
 
 /**
- * 
+ *
  * 重新加载
  */
 
@@ -475,17 +479,21 @@ APIPATH.addApiByPost = function(jsonData) {
             APIPATH.getApiListByAjax('#tableBody', '#tableValue');
             //location.reload();
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
 
             } else if (XMLHttpRequest.status == 500) {
-                alert("服务器异常！");　　
+                alert("服务器异常！");
             }
-        }　
+            if (XMLHttpRequest.status == 200) {
+                //修改成功后关闭模态框
+                $('#myModal').modal('hide');
+            }
+        }
     });
 }
 
@@ -513,27 +521,27 @@ APIPATH.selectAddApiType = function() {
 
 
 APIPATH.getApiListByAjax = function(tableBody, tableValue) {
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/apipath", //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             APIPATH.drewTablesByApiPath(data, tableBody, tableValue);
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');　　　　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');
             } else if (XMLHttpRequest.status == 500) {
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');　　
-            }　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');
+            }
         }
     });
 }
@@ -551,28 +559,29 @@ APIPATH.drewAddButtonProjectList = function(data, pathId) {
 
 
 APIPATH.getBaseurlListByAjax = function(tableBody, tableValue) {
-    $.ajax({　　
+
+    $.ajax({
         url: hostSite + ":" + serverPort + "/baseurl", //请求的URL
-        　　 //timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　　
+        //timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
 
             APIPATH.drewTablesByBaseUrl(data, tableBody, tableValue);
 
         },
-        　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-            　　　　
+        complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
             if (status == 'timeout') { //超时,status还有success,error等值的情况
-                　　　　　
-                ajaxTimeoutTest.abort();　　　　　
+
+                ajaxTimeoutTest.abort();
                 alert("超时");
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');　　　　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-glass"><label><b> 连接超时，刷新试试！</b></lable></span><p></p></div>');
             } else if (XMLHttpRequest.status == 500) {
-                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');　　
-            }　
+                $(tableBody).html(' <div style="text-align:center;font-size:22px;"> <p></p><span class="glyphicon glyphicon-warning-sign"><label><b> 服务器异常！</b></lable></span><p></p></div>');
+            }
         }
     });
 
@@ -605,9 +614,9 @@ APIPATH.drewTablesByBaseUrl = function(data, tableBody, tableValue) {
 
         });
 
+        $('#tableValue ').append(table_code);
+        $('#tableValue ').html(table_code);
 
-
-        $(tableValue).html(table_code);
     }
 }
 
@@ -646,22 +655,22 @@ APIPATH.drewTablesByApiPath = function(data, tableBody, tableValue) {
 }
 
 
-APIPATH.deleteBaseUrl = function(id, tableBody, tableValue) {　
-    $.ajax({　　
+APIPATH.deleteBaseUrl = function(id, tableBody, tableValue) {
+    $.ajax({
         url: hostSite + ":" + serverPort + "/baseurl/" + id, //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'delete', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'delete', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
             //location.reload();　　　
 
 
         },
-        　　complete: function(XMLHttpRequest, status) {
+        complete: function(XMLHttpRequest, status) {
             //alert("删除成功！"); //请求完成后最终执行参数
-            　
+
             APIPATH.getBaseurlListByAjax(tableBody, tableValue);
             //location.reload();　　
         }
@@ -669,22 +678,22 @@ APIPATH.deleteBaseUrl = function(id, tableBody, tableValue) {　
 
 }
 
-APIPATH.deleteAPI = function(id, tableBody, tableValue) {　
-    $.ajax({　　
+APIPATH.deleteAPI = function(id, tableBody, tableValue) {
+    $.ajax({
         url: hostSite + ":" + serverPort + "/apipath/" + id, //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'delete', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　　　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'delete', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
             //location.reload();　　　
 
 
         },
-        　　complete: function(XMLHttpRequest, status) {
+        complete: function(XMLHttpRequest, status) {
             //alert("删除成功！"); //请求完成后最终执行参数
-            　
+
             APIPATH.getApiListByAjax(tableBody, tableValue);
             //location.reload();　　
         }
@@ -692,7 +701,7 @@ APIPATH.deleteAPI = function(id, tableBody, tableValue) {　
 
 }
 
-APIPATH.updateBaseUrl = function(id, tableBody, tableValue) {　
+APIPATH.updateBaseUrl = function(id, tableBody, tableValue) {
     if ($('#pathInput').val() == '') {
         alert("地址不能为空");
     } else {
@@ -712,20 +721,20 @@ APIPATH.updateBaseUrl = function(id, tableBody, tableValue) {　
                 APIPATH.getBaseurlListByAjax('#tableBody', '#tableValue');
                 //location.reload();
             },
-            　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+            complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
                 if (status == 'timeout') { //超时,status还有success,error等值的情况
-                    　　　　　
-                    ajaxTimeoutTest.abort();　　　　　
+
+                    ajaxTimeoutTest.abort();
                     alert("超时");
 
                 } else if (XMLHttpRequest.status == 500) {
-                    alert("服务器异常！");　　
+                    alert("服务器异常！");
                 }
                 if (XMLHttpRequest.status == 200) {
                     //修改成功后关闭模态框
                     $('#myModal').modal('hide');
                 }
-            }　
+            }
         });
     }
 
@@ -733,14 +742,14 @@ APIPATH.updateBaseUrl = function(id, tableBody, tableValue) {　
 
 APIPATH.getBaseUrl = function(id) {
     var projectId;
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/getBaseurl/" + id, //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
             //alert('baseurl: ' + data.baseurl + 'projectId: ' + data.projectId + 'Id: ' + data.id);
 
             //location.reload();　　　
@@ -751,32 +760,32 @@ APIPATH.getBaseUrl = function(id) {
             //alert(data.projectId);
 
         },
-        　　complete: function(XMLHttpRequest, status) {
+        complete: function(XMLHttpRequest, status) {
             //alert("删除成功！"); //请求完成后最终执行参数
             //location.reload();　
 
             if (status == 'success') {
                 //alert("status: " + status)　;
-                $.ajax({　　
+                $.ajax({
                     url: hostSite + ":" + serverPort + "/project", //请求的URL
-                    　　timeout: 500, //超时时间设置，单位毫秒
-                    　　type: 'get', //请求方式，get或post
-                    　　data: {}, //请求所传参数，json格式
-                    　　dataType: 'json', //返回的数据格式
-                    　　success: function(data) { //请求成功的回调函数
+                    timeout: 500, //超时时间设置，单位毫秒
+                    type: 'get', //请求方式，get或post
+                    data: {}, //请求所传参数，json格式
+                    dataType: 'json', //返回的数据格式
+                    success: function(data) { //请求成功的回调函数
                         //alert(projectId);　
 
                         APIPATH.drewProjectOptionSelect(data, '#selectProject', projectId);
                     },
-                    　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-                        　　　　
+                    complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
                         if (status == 'timeout') { //超时,status还有success,error等值的情况
-                            　　　　　
-                            ajaxTimeoutTest.abort();　　　　　
-                            alert("请求超时");　　　
-                        } else if (XMLHttpRequest.status == 500) {　
-                            alert("服务器故障！");　　　
-                        }　
+
+                            ajaxTimeoutTest.abort();
+                            alert("请求超时");
+                        } else if (XMLHttpRequest.status == 500) {
+                            alert("服务器故障！");
+                        }
                     }
                 });
                 $('#myModalLabel').text("编辑");
@@ -795,7 +804,7 @@ APIPATH.getBaseUrl = function(id) {
 /**
  * 更新api
  */
-APIPATH.updateApipath = function(id, tableBody, tableValue) {　
+APIPATH.updateApipath = function(id, tableBody, tableValue) {
     if ($('#pathInput').val() == '') {
         alert("地址不能为空");
     } else {
@@ -815,20 +824,20 @@ APIPATH.updateApipath = function(id, tableBody, tableValue) {　
                 APIPATH.getApiListByAjax('#tableBody', '#tableValue');
                 //location.reload();
             },
-            　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+            complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
                 if (status == 'timeout') { //超时,status还有success,error等值的情况
-                    　　　　　
-                    ajaxTimeoutTest.abort();　　　　　
+
+                    ajaxTimeoutTest.abort();
                     alert("超时");
 
                 } else if (XMLHttpRequest.status == 500) {
-                    alert("服务器异常！");　　
+                    alert("服务器异常！");
                 }
                 if (XMLHttpRequest.status == 200) {
                     //修改成功后关闭模态框
                     $('#myModal').modal('hide');
                 }
-            }　
+            }
         });
     }
 
@@ -836,14 +845,14 @@ APIPATH.updateApipath = function(id, tableBody, tableValue) {　
 
 APIPATH.getApipath = function(id) {
     var projectId;
-    $.ajax({　　
+    $.ajax({
         url: hostSite + ":" + serverPort + "/apipath/" + id, //请求的URL
-        　　timeout: 500, //超时时间设置，单位毫秒
-        　　type: 'get', //请求方式，get或post
-        　　data: {}, //请求所传参数，json格式
-        　　dataType: 'json', //返回的数据格式
-        　　success: function(data) { //请求成功的回调函数
-            　
+        timeout: 500, //超时时间设置，单位毫秒
+        type: 'get', //请求方式，get或post
+        data: {}, //请求所传参数，json格式
+        dataType: 'json', //返回的数据格式
+        success: function(data) { //请求成功的回调函数
+
             //alert('baseurl: ' + data.baseurl + 'projectId: ' + data.projectId + 'Id: ' + data.id);
 
             //location.reload();　　　
@@ -854,32 +863,32 @@ APIPATH.getApipath = function(id) {
             //alert(data.projectId);
 
         },
-        　　complete: function(XMLHttpRequest, status) {
+        complete: function(XMLHttpRequest, status) {
             //alert("删除成功！"); //请求完成后最终执行参数
             //location.reload();　
 
             if (status == 'success') {
                 //alert("status: " + status)　;
-                $.ajax({　　
+                $.ajax({
                     url: hostSite + ":" + serverPort + "/project", //请求的URL
-                    　　timeout: 500, //超时时间设置，单位毫秒
-                    　　type: 'get', //请求方式，get或post
-                    　　data: {}, //请求所传参数，json格式
-                    　　dataType: 'json', //返回的数据格式
-                    　　success: function(data) { //请求成功的回调函数
+                    timeout: 500, //超时时间设置，单位毫秒
+                    type: 'get', //请求方式，get或post
+                    data: {}, //请求所传参数，json格式
+                    dataType: 'json', //返回的数据格式
+                    success: function(data) { //请求成功的回调函数
                         //alert(projectId);　
 
                         APIPATH.drewProjectOptionSelect(data, '#selectProject', projectId);
                     },
-                    　　complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
-                        　　　　
+                    complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+
                         if (status == 'timeout') { //超时,status还有success,error等值的情况
-                            　　　　　
-                            ajaxTimeoutTest.abort();　　　　　
-                            alert("请求超时");　　　
-                        } else if (XMLHttpRequest.status == 500) {　
-                            alert("服务器故障！");　　　
-                        }　
+
+                            ajaxTimeoutTest.abort();
+                            alert("请求超时");
+                        } else if (XMLHttpRequest.status == 500) {
+                            alert("服务器故障！");
+                        }
                     }
                 });
                 $('#myModalLabel').text("编辑");
@@ -906,15 +915,15 @@ APIPATH.drewProjectOptionSelect = function(data, pathId, projectId) {
     }
 
     /*
-        $.each(data, function(key, val) {
-            if (this.id == projectId) {
-                alert(this.id);
-            }
-            table_code = table_code + '<option id="' + this.id + '">' + this.title + '</option>';
+     $.each(data, function(key, val) {
+     if (this.id == projectId) {
+     alert(this.id);
+     }
+     table_code = table_code + '<option id="' + this.id + '">' + this.title + '</option>';
 
 
-        });
-        */
+     });
+     */
     //alert(table_code);
     $(pathId).html(table_code);
     $('#' + projectId).attr("selected", true);
