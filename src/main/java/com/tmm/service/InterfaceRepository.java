@@ -12,5 +12,5 @@ public interface InterfaceRepository extends JpaRepository<Interface,Long> {
 
     public List<Interface> findInterfacesByProjectId(Long projectId);
 
-    public List<Interface> findInterfacesByBaseUrlId(Long baseUrlId);
+
 }

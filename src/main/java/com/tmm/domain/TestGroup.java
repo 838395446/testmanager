@@ -21,30 +21,22 @@ public class TestGroup {
 
     private Long projectId;
 
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-
-    @Temporal(TemporalType.DATE)
-    private Date lastUpdateDate;
-
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Temporal(TemporalType.TIME)
-    private Date lastUpdateTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTime;
 
     public TestGroup() {
     }
 
-    public TestGroup(String title, String comment, String parameters, Long projectId, Date createDate, Date lastUpdateDate, Date createTime, Date lastUpdateTime) {
+    public TestGroup(String title, String comment, String parameters, Long projectId, Date createTime, Date updateTime) {
         this.title = title;
         this.comment = comment;
         this.parameters = parameters;
         this.projectId = projectId;
-        this.createDate = createDate;
-        this.lastUpdateDate = lastUpdateDate;
         this.createTime = createTime;
-        this.lastUpdateTime = lastUpdateTime;
+        this.updateTime = updateTime;
     }
 
     public Long getId() {
@@ -87,22 +79,6 @@ public class TestGroup {
         this.projectId = projectId;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -111,11 +87,24 @@ public class TestGroup {
         this.createTime = createTime;
     }
 
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "TestGroup{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", comment='" + comment + '\'' +
+                ", parameters='" + parameters + '\'' +
+                ", projectId=" + projectId +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

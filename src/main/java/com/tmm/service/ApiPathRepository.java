@@ -17,11 +17,8 @@ public class ApiPathRepository {
         interfacePath.setApiPath(inputApi.getApiPath());
         interfacePath.setComment(inputApi.getComment());
         interfacePath.setProjectId(inputApi.getProjectId());
-        interfacePath.setBaseUrlId(inputApi.getBaseUrlId());
-        interfacePath.setCreateDate(new Date());
-        interfacePath.setLastUpdateDate(new Date());
         interfacePath.setCreateTime(new Date());
-        interfacePath.setLastUpdateTime(new Date());
+        interfacePath.setUpdateTime(new Date());
 
         return interfacePath;
     }
@@ -32,9 +29,7 @@ public class ApiPathRepository {
         apiPath.setApiPath(inputApi.getApiPath());
         apiPath.setComment(inputApi.getComment());
         apiPath.setProjectId(inputApi.getProjectId());
-        apiPath.setBaseUrlId(inputApi.getBaseUrlId());
-        apiPath.setLastUpdateDate(new Date());
-        apiPath.setLastUpdateTime(new Date());
+        apiPath.setUpdateTime(new Date());
         return apiPath;
     }
 }

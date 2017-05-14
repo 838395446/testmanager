@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="./favicon.ico">
 
-    <title>接口测试平台-项目列表</title>
+    <title>项目列表-接口测试平台</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
     <link href="./assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <link href="./css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -29,6 +29,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
     <link rel="stylesheet" href="./css/cikonss.css" />
 </head>
@@ -65,9 +66,10 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <div>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">主页</a></li>
-                        <li><a href="#about">关于</a></li>
-                        <li><a href="#contact">统计</a></li>
+                        <li><a href="#">主页</a></li>
+                        <li class="active"><a href="#">项目</a></li>
+
+                        <li><a href="#contact">用例组</a></li>
                         <li><a href="#contact">设定</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">查询<span class="caret"></span></a>
@@ -88,6 +90,8 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-right hidden-sm">
+
+                    <li><a href="#about">关于</a></li>
                     <li><a href="#">其他</a></li>
                 </ul>
 
@@ -103,185 +107,26 @@
 
         <ol class="breadcrumb">
             <li><a href="#">全部</a></li>
-            <li><a href="#">项目</a></li>
-            <li class="active">组</li>
+            <li class="active">项目</li>
         </ol>
         <div class="panel panel-info">
             <div class="panel-heading">
 
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> 新建</button>
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> 编辑</button>
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> 删除</button>
+                <button type="button" class="btn btn-default" onclick="PROJECT.getProjectList()"><span class="glyphicon glyphicon-plus"></span> 新建项目</button>
 
             </div>
-            <div class="panel-body">
+            <div class="panel-body" id="table-body">
                 <table class="table table-hover">
 
                     <thead>
                         <tr>
                             <th>名称</th>
                             <th>描述</th>
-                            <th>用例</th>
-                            <th>操作</th>
+                            <th>更新时间</th>
+                            <th>创建时间</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Tanmay</td>
-                            <td>Bangalore</td>
-                            <td>560001</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sachin</td>
-                            <td>Mumbai</td>
-                            <td>400003</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Uma</td>
-                            <td>Pune</td>
-                            <td>411027</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tanmay</td>
-                            <td>Bangalore</td>
-                            <td>560001</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sachin</td>
-                            <td>Mumbai</td>
-                            <td>400003</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Uma</td>
-                            <td>Pune</td>
-                            <td>411027</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tanmay</td>
-                            <td>Bangalore</td>
-                            <td>560001</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sachin</td>
-                            <td>Mumbai</td>
-                            <td>400003</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Uma</td>
-                            <td>Pune</td>
-                            <td>411027</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Tanmay</td>
-                            <td>Bangalore</td>
-                            <td>560001</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sachin</td>
-                            <td>Mumbai</td>
-                            <td>400003</td>
-                            <td>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-pencil">修改</span>
-                                </a>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-remove">删除</span>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr onclick="alert('adasdf')">
-                            <td>Uma</td>
-                            <td>Pune</td>
-                            <td>411027</td>
-                            <td>
-                                <a href=" # ">
-                                    <span class="glyphicon glyphicon-pencil ">修改</span>
-                                </a>
-                                <a href="# ">
-                                    <span class="glyphicon glyphicon-remove ">删除</span>
-                                </a>
-                            </td>
-                        </tr>
+                    <tbody id="table-values">
 
 
 
@@ -309,7 +154,7 @@
 
     <footer class="footer ">
         <div class="container ">
-            <p class="text-muted ">接口测试专用 By Captain Wang</p>
+            <p class="text-muted ">接口测试专用 By <a href="mailto:2935689885@qq.com"><span >  <label> Captain Wang </label><label class="glyphicon glyphicon-earphone"></label></span></a></p>
         </div>
     </footer>
 
@@ -317,7 +162,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js "></script>
+    <script src="./js/jquery-3.2.1.min.js "></script>
     <script>
         window.jQuery || document.write('<script src="./assets/js/vendor/jquery.min.js "><\/script>')
     </script>
@@ -325,6 +170,16 @@
     <script src="./js/tmmjs.js "></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./assets/js/ie10-viewport-bug-workaround.js "></script>
+
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function() {
+
+        PROJECT.getProjectListByAjax('#table-body', '#table-values');
+
+
+    });
+</script>

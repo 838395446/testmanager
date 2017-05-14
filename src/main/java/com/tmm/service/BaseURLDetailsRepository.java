@@ -16,14 +16,8 @@ public class BaseURLDetailsRepository {
 
         baseUrl.setComment(inputBaseURL.getComment());
         baseUrl.setBaseurl(inputBaseURL.getBaseurl());
-        baseUrl.setLastUpdateTime(new Date());
-        baseUrl.setLastUpdateDate(new Date());
-
-
+        baseUrl.setUpdateTime(new Date());
         baseUrl.setCreateTime(new Date());
-        baseUrl.setCreateDate(new Date());
-
-
         return baseUrl;
     }
 

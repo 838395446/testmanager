@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -95,8 +96,21 @@ public class BaseUrlController {
     public BaseUrl updateBaseURLById(@PathVariable("baseurlId") Long id,@RequestBody InputBaseURL inputBaseURL) {
         BaseURLDetailsRepository baseURLDetailsRepository = new BaseURLDetailsRepository();
         //baseURLDetailsRepository.updateBaseURL(baseUrlRepository.findOne(id),inputBaseURL);
-        BaseUrl baseurl=baseUrlRepository.save(baseURLDetailsRepository.updateBaseURL(baseUrlRepository.findOne(id),inputBaseURL));
-        return baseurl;
+        BaseUrl baseUrl = baseURLDetailsRepository.updateBaseURL(baseUrlRepository.findOne(id),inputBaseURL);
+        baseUrl.setUpdateTime(new Date());
+        BaseUrl returnBaseurl=baseUrlRepository.save(baseUrl);
+        return returnBaseurl;
+
+    }
+
+
+    @GetMapping(value = "/getBaseurl/{baseurlId}")
+    @ResponseBody
+    @ApiOperation(value = "用 baseurlId 获取baseUrl", httpMethod = "GET", notes = "暂无")
+    public BaseUrl getBaseURLByBaseurlId(@PathVariable("baseurlId") Long baseurlId) {
+
+
+        return  baseUrlRepository.findOne(baseurlId);
 
     }
 }

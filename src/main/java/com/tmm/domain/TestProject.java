@@ -20,30 +20,21 @@ public class TestProject {
     @Column(length = 2000)
     private String comment;
 
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
 
-
-    @Temporal(TemporalType.DATE)
-    private Date lastUpdateDate;
-
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Temporal(TemporalType.TIME)
-    private Date lastUpdateTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTime;
 
     public TestProject() {
     }
 
-    public TestProject(Long id, String title, String comment, Date createDate, Date lastUpdateDate, Date createTime, Date lastUpdateTime) {
-        this.id = id;
+    public TestProject(String title, String comment, Date createTime, Date updateTime) {
         this.title = title;
         this.comment = comment;
-        this.createDate = createDate;
-        this.lastUpdateDate = lastUpdateDate;
         this.createTime = createTime;
-        this.lastUpdateTime = lastUpdateTime;
+        this.updateTime = updateTime;
     }
 
     public Long getId() {
@@ -70,22 +61,6 @@ public class TestProject {
         this.comment = comment;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -94,11 +69,22 @@ public class TestProject {
         this.createTime = createTime;
     }
 
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "TestProject{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", comment='" + comment + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
     }
 }

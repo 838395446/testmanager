@@ -74,10 +74,9 @@ public class RetrofitTest_01 {
         Date date = new Date();
         DateFormat df1 = DateFormat.getDateInstance();//日期格式，精确到日
 
-        baseUrl.setCreateDate(new Date());
-        baseUrl.setLastUpdateDate(new Date());
+
         baseUrl.setCreateTime(new Date());
-        baseUrl.setLastUpdateTime(new Date());
+        baseUrl.setUpdateTime(new Date());
 
         baseUrl.setProjectId(100001L);
 
@@ -104,10 +103,9 @@ public class RetrofitTest_01 {
 
         testGroup.setTitle("新增接口测试");
         testGroup.setParameters("id=100;name=wang;");
-        testGroup.setCreateDate(new Date());
-        testGroup.setLastUpdateDate(new Date());
+
         testGroup.setCreateTime(new Date());
-        testGroup.setLastUpdateTime(new Date());
+        testGroup.setUpdateTime(new Date());
 
         testGroupRespository.save(testGroup);
 
@@ -118,10 +116,9 @@ public class RetrofitTest_01 {
         TestProject testProject= new TestProject();
         testProject.setComment("zhe是备注");
         testProject.setTitle("酒店项目");
-        testProject.setLastUpdateDate(new Date());
-        testProject.setCreateDate(new Date());
+
         testProject.setCreateTime(new Date());
-        testProject.setLastUpdateTime(new Date());
+        testProject.setUpdateTime(new Date());
         testProjectRepository.save(testProject);
     }
 }

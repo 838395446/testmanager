@@ -12,13 +12,11 @@ public class InputApi {
 
     private Long projectId;
 
-    private Long baseUrlId;
 
     public InputApi() {
         this.comment = "";
         this.apiPath = "";
         this.projectId = 0L;
-        this.baseUrlId = 0L;
     }
 
 
@@ -46,11 +44,4 @@ public class InputApi {
         this.projectId = projectId;
     }
 
-    public Long getBaseUrlId() {
-        return baseUrlId;
-    }
-
-    public void setBaseUrlId(Long baseUrlId) {
-        this.baseUrlId = baseUrlId;
-    }
 }

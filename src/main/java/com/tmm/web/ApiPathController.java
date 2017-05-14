@@ -88,21 +88,6 @@ public class ApiPathController {
 
     }
 
-    /**
-     *
-     *
-     * @param
-     * @return
-     */
-
-    @GetMapping(value = "/apipathbybaseurl/{baseUrlId}")
-    @ResponseBody
-    @ApiOperation(value = "用 BaseUrlId 搜索 apipaths", httpMethod = "GET", notes = "暂无")
-    public List<Interface> getApipathByBaseUrlId(@PathVariable("baseUrlId") Long baseUrlId) {
-
-        return  interfaceRepository.findInterfacesByBaseUrlId(baseUrlId);
-
-    }
 
     /**
      *

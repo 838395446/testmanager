@@ -20,36 +20,25 @@ public class Interface {
 
     private String comment;
 
-    private Long baseUrlId;
-
-
     private Long projectId;
 
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date lastUpdateDate;
-
-
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Temporal(TemporalType.TIME)
-    private Date lastUpdateTime;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updateTime;
 
     public Interface() {
     }
 
-    public Interface(Long id, String comment, String apiPath, Long projectId, Date createDate, Date lastUpdateDate, Date createTime, Date lastUpdateTime) {
-        this.id = id;
-        this.comment = comment;
+    public Interface(String apiPath, String comment, Long projectId, Date createTime, Date updateTime) {
         this.apiPath = apiPath;
+        this.comment = comment;
+
         this.projectId = projectId;
-        this.createDate = createDate;
-        this.lastUpdateDate = lastUpdateDate;
         this.createTime = createTime;
-        this.lastUpdateTime = lastUpdateTime;
+        this.updateTime = updateTime;
     }
 
     public Long getId() {
@@ -60,14 +49,6 @@ public class Interface {
         this.id = id;
     }
 
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     public String getApiPath() {
         return apiPath;
     }
@@ -76,28 +57,22 @@ public class Interface {
         this.apiPath = apiPath;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+
+
     public Long getProjectId() {
         return projectId;
     }
 
     public void setProjectId(Long projectId) {
         this.projectId = projectId;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 
     public Date getCreateTime() {
@@ -108,20 +83,12 @@ public class Interface {
         this.createTime = createTime;
     }
 
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
-
-    public Long getBaseUrlId() {
-        return baseUrlId;
-    }
-
-    public void setBaseUrlId(Long baseUrlId) {
-        this.baseUrlId = baseUrlId;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     @Override
@@ -130,12 +97,9 @@ public class Interface {
                 "id=" + id +
                 ", apiPath='" + apiPath + '\'' +
                 ", comment='" + comment + '\'' +
-                ", baseUrlId=" + baseUrlId +
                 ", projectId=" + projectId +
-                ", createDate=" + createDate +
-                ", lastUpdateDate=" + lastUpdateDate +
                 ", createTime=" + createTime +
-                ", lastUpdateTime=" + lastUpdateTime +
+                ", updateTime=" + updateTime +
                 '}';
     }
 }
