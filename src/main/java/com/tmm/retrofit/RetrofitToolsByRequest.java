@@ -1,25 +1,39 @@
 package com.tmm.retrofit;
 
+import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
+import com.tmm.dto.Request.CaseStepByRequest;
+import com.tmm.dto.Response.RequestInfo;
+import com.tmm.dto.Response.ResponseInfo;
+import com.tmm.dto.Response.ResponseResult;
+import com.tmm.retrofit.config.ConfigValue;
+import com.tmm.retrofit.config.RequestMethods;
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Captain Wang on 17/4/22.
  */
+public class RetrofitToolsByRequest {
 
-/**
- *
-public class RetrofitTools {
-
-    private String method;
-    private RequestDTO requestDTO;
+    private CaseStepByRequest caseStepByRequest;
     private Response<String> re;
     private RequestMethods request;
     private Retrofit retrofit;
     private Call<String> requestCall;
-    private String errorMassage = "";
+    private String errorMassage;
+    private String method;
 
     public void RetrofitBuilder() {
         try {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(this.requestDTO.getBaseUrl())
+                    .baseUrl(this.caseStepByRequest.getBaseUrl())
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
@@ -33,12 +47,13 @@ public class RetrofitTools {
 
     }
 
-    public RetrofitTools() {
+    public RetrofitToolsByRequest() {
     }
 
-    public RetrofitTools(RequestDTO requestDTO) {
-        this.requestDTO = requestDTO;
-        System.out.println("RequestDTO:" + requestDTO.toString());
+    public RetrofitToolsByRequest(CaseStepByRequest request) {
+        this.errorMassage="";
+        this.caseStepByRequest = request;
+        System.out.println("RequestDTO:" + caseStepByRequest.toString());
         RetrofitBuilder();
     }
 
@@ -50,37 +65,33 @@ public class RetrofitTools {
         responseResult.setMsg(this.errorMassage);
         try {
 
-            if (responseResult.getMsg().isEmpty() == false) {
+            if (!responseResult.getMsg().isEmpty()) {
                 return responseResult;
             }
 
-           if(this.requestDTO.getRequestMethod().equals(ConfigValue.RequestMethod_POST)) {
-               //System.out.println("Method: " + this.method);
-               this.method = "POST";
-               this.requestCall = this.request.POST(this.requestDTO.getPath(), this.requestDTO.getParameters());
+            if (this.caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_POST)) {
+                //System.out.println("Method: " + this.method);
+                this.method = "POST";
+                this.requestCall = this.request.POST(this.caseStepByRequest.getApi(), this.caseStepByRequest.getRe_parameters());
 
-           }
-            if(this.requestDTO.getRequestMethod().equals(ConfigValue.RequestMethod_DELETE)) {
-
+            } else if (this.caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_DELETE)) {
                 this.method = "DELETE";
-                if (requestDTO.getParameters().equals("")) {
-                    this.requestCall = this.request.DELETE_NO_Parameters(this.requestDTO.getPath());
+                if (caseStepByRequest.getRe_parameters().equals("")) {
+                    this.requestCall = this.request.DELETE_NO_Parameters(this.caseStepByRequest.getApi());
                 } else {
-                    this.requestCall = this.request.DELETE(this.requestDTO.getPath(), requestDTO.getParameters());
+                    this.requestCall = this.request.DELETE(this.caseStepByRequest.getApi(), caseStepByRequest.getRe_parameters());
                 }
+            } else if (this.caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_PUT)) {
 
-            }
-                case ConfigValue.RequestMethod_PUT:
-                    this.method = "PUT";
-                    this.requestCall = this.request.PUT(this.requestDTO.getPath(), this.requestDTO.getParameters());
+                this.method = "PUT";
+                this.requestCall = this.request.PUT(this.caseStepByRequest.getApi(), this.caseStepByRequest.getRe_parameters());
 
-                    break;
-                case ConfigValue.RequestMethod_GET:
-                    this.method = "GET";
-                    responseResult.setMsg(useRequestByGet());
-                    break;
-                default:
-                    System.out.println("Method: " + method);
+            } else if (this.caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_GET)) {
+
+                this.method = "GET";
+                responseResult.setMsg(useRequestByGet());
+            } else {
+                System.out.println("Method: " + method);
             }
             //System.out.println("发送请求...");
 
@@ -99,11 +110,11 @@ public class RetrofitTools {
             System.out.println("Method: " + this.method + "  (Class: " + this.method.getClass().getSimpleName() + ")");
             System.out.println("URL:\t" + this.requestCall.request().toString().split(",")[1].substring(this.requestCall.request().toString().split(",")[1].indexOf("=") + 1));
             System.out.println("Request Headers:\t" + this.requestCall.request().headers());
-            System.out.println("Request Body:\t" + this.requestDTO.getParameters());
+            System.out.println("Request Body:\t" + this.caseStepByRequest.getRe_parameters());
             requestInfoDTO.setMethod(this.method);
             requestInfoDTO.setUrl(this.requestCall.request().toString().split(",")[1].substring(this.requestCall.request().toString().split(",")[1].indexOf("=") + 1));
             requestInfoDTO.setHeaders(this.requestCall.request().headers().toString());
-            requestInfoDTO.setBody(this.requestDTO.getParameters());
+            requestInfoDTO.setBody(this.caseStepByRequest.getRe_parameters());
 
 
             System.out.println("\n<<<<<<<<<<<<<<<<<<<<<<<\t\tRESPONSE INFO\t\t<<<<<<<<<<<<<<<<<<<<<<<");
@@ -115,7 +126,7 @@ public class RetrofitTools {
             System.out.println("Successful:\t" + this.re.isSuccessful());
             System.out.println("Message:\t" + this.re.message());
 
-            if (requestDTO.getRequestMethod() != 4||requestDTO.getRequestMethod() != 3) {
+            if (!(caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_DELETE)) || !(caseStepByRequest.getRequest_method().equals(ConfigValue.RequestMethod_PUT))) {
                 System.out.println("Body:\t" + this.re.body());
                 responseInfoDTO.setBody(this.re.body());
             }
@@ -145,16 +156,16 @@ public class RetrofitTools {
         String msg = "";
         try {
             Gson gson = new Gson();
-            Map maps = (Map) JSON.parse(requestDTO.getParameters());
+            Map maps = (Map) JSON.parse(caseStepByRequest.getRe_parameters());
             System.out.println("转换MAP");
-            System.out.println(this.requestDTO.getPath());
+            System.out.println(this.caseStepByRequest.getApi());
             System.out.println("========  map : " + maps);
             if (maps == null) {
 
-                this.requestCall = this.request.GET(this.requestDTO.getPath());
+                this.requestCall = this.request.GET(this.caseStepByRequest.getApi());
                 System.out.println("传值到call 1:" + requestCall);
             } else {
-                this.requestCall = this.request.GET_With_Parameters(this.requestDTO.getPath(), maps);
+                this.requestCall = this.request.GET_With_Parameters(this.caseStepByRequest.getApi(), maps);
                 System.out.println("传值到call 2:" + requestCall);
             }
 
@@ -185,5 +196,3 @@ public class RetrofitTools {
     }
 
 }
-
- */

@@ -6,13 +6,13 @@ package com.tmm.retrofit.config;
 public class ConfigValue {
 
     //请求类型定义
-    public final static int RequestMethod_GET=1;
-    public final static int RequestMethod_POST=2;
-    public final static int RequestMethod_PUT=3;
-    public final static int RequestMethod_DELETE=4;
+    public final static String RequestMethod_GET="GET";
+    public final static String RequestMethod_POST="POST";
+    public final static String RequestMethod_PUT="PUT";
+    public final static String RequestMethod_DELETE="DELETE";
 
 
     //验证定义
-    public final static int RequestTestVerify_No=0;
-    public final static int RequestTestVerify_YES=1;
+    public final static Boolean RequestTestVerify_No=false;
+    public final static Boolean RequestTestVerify_YES=true;
 }

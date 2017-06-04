@@ -7,11 +7,9 @@ public class InputApi {
 
     private String comment;
 
-
     private String apiPath;
 
     private Long projectId;
-
 
     public InputApi() {
         this.comment = "";

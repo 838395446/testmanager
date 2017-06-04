@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="tmm@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
     <root id="1"/>
     <schema id="2" parent="1" name="tmm">
       <Current>1</Current>
@@ -13,203 +13,200 @@
     <schema id="7" parent="1" name="sys"/>
     <table id="8" parent="2" name="base_url"/>
     <table id="9" parent="2" name="bill"/>
-    <table id="10" parent="2" name="customer"/>
-    <table id="11" parent="2" name="interface"/>
-    <table id="12" parent="2" name="product"/>
-    <table id="13" parent="2" name="product_details"/>
-    <table id="14" parent="2" name="test_group"/>
-    <table id="15" parent="2" name="test_project"/>
-    <column id="16" parent="8" name="id">
+    <table id="10" parent="2" name="case_step"/>
+    <table id="11" parent="2" name="customer"/>
+    <table id="12" parent="2" name="interface"/>
+    <table id="13" parent="2" name="product"/>
+    <table id="14" parent="2" name="product_details"/>
+    <table id="15" parent="2" name="test_group"/>
+    <table id="16" parent="2" name="test_project"/>
+    <column id="17" parent="8" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="17" parent="8" name="baseurl">
+    <column id="18" parent="8" name="baseurl">
       <Position>2</Position>
       <DataType>varchar(1000)|0</DataType>
     </column>
-    <column id="18" parent="8" name="comment">
+    <column id="19" parent="8" name="comment">
       <Position>3</Position>
       <DataType>varchar(2000)|0</DataType>
     </column>
-    <column id="19" parent="8" name="create_time">
+    <column id="20" parent="8" name="create_time">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="20" parent="8" name="project_id">
+    <column id="21" parent="8" name="project_id">
       <Position>5</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="21" parent="8" name="update_time">
+    <column id="22" parent="8" name="update_time">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="22" parent="8" name="PRIMARY">
+    <key id="23" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="23" parent="9" name="id">
+    <column id="24" parent="9" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="24" parent="9" name="details">
+    <column id="25" parent="9" name="details">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="25" parent="9" name="total_prices">
+    <column id="26" parent="9" name="total_prices">
       <Position>3</Position>
       <DataType>decimal(19,2)|0</DataType>
     </column>
-    <column id="26" parent="9" name="customer_id">
+    <column id="27" parent="9" name="customer_id">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <key id="27" parent="9" name="PRIMARY">
+    <key id="28" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="28" parent="10" name="id">
+    <column id="29" parent="10" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="29" parent="10" name="comment">
+    <column id="30" parent="10" name="api_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="31" parent="10" name="base_url_id">
+      <Position>3</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="32" parent="10" name="re_parameters">
+      <Position>4</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="33" parent="10" name="request_method">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="34" parent="10" name="title">
+      <Position>6</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <key id="35" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="36" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="37" parent="11" name="comment">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="30" parent="10" name="name">
+    <column id="38" parent="11" name="name">
       <Position>3</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="31" parent="10" name="tel">
+    <column id="39" parent="11" name="tel">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="32" parent="10" name="PRIMARY">
+    <key id="40" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="11" name="id">
+    <column id="41" parent="12" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="34" parent="11" name="api_path">
+    <column id="42" parent="12" name="api_path">
       <Position>2</Position>
       <DataType>varchar(1000)|0</DataType>
     </column>
-    <column id="35" parent="11" name="comment">
+    <column id="43" parent="12" name="comment">
       <Position>3</Position>
       <DataType>varchar(2000)|0</DataType>
     </column>
-    <column id="36" parent="11" name="create_time">
+    <column id="44" parent="12" name="create_time">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="37" parent="11" name="project_id">
+    <column id="45" parent="12" name="project_id">
       <Position>5</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="38" parent="11" name="update_time">
+    <column id="46" parent="12" name="update_time">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="39" parent="11" name="PRIMARY">
+    <key id="47" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="40" parent="12" name="id">
+    <column id="48" parent="13" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="41" parent="12" name="comment">
+    <column id="49" parent="13" name="comment">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="42" parent="12" name="name">
+    <column id="50" parent="13" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="43" parent="12" name="price">
+    <column id="51" parent="13" name="price">
       <Position>4</Position>
       <DataType>decimal(19,2)|0</DataType>
     </column>
-    <key id="44" parent="12" name="PRIMARY">
+    <key id="52" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="45" parent="13" name="id">
+    <column id="53" parent="14" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="46" parent="13" name="details">
+    <column id="54" parent="14" name="details">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="47" parent="13" name="price">
+    <column id="55" parent="14" name="price">
       <Position>3</Position>
       <DataType>decimal(19,2)|0</DataType>
     </column>
-    <column id="48" parent="13" name="product_id">
+    <column id="56" parent="14" name="product_id">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="49" parent="13" name="quantity">
+    <column id="57" parent="14" name="quantity">
       <Position>5</Position>
       <DataType>decimal(19,2)|0</DataType>
     </column>
-    <column id="50" parent="13" name="bill_id">
+    <column id="58" parent="14" name="bill_id">
       <Position>6</Position>
       <DataType>bigint(20)|0</DataType>
-    </column>
-    <key id="51" parent="13" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="52" parent="14" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="53" parent="14" name="comment">
-      <Position>2</Position>
-      <DataType>varchar(1000)|0</DataType>
-    </column>
-    <column id="54" parent="14" name="create_time">
-      <Position>3</Position>
-      <DataType>datetime|0</DataType>
-    </column>
-    <column id="55" parent="14" name="parameters">
-      <Position>4</Position>
-      <DataType>varchar(2000)|0</DataType>
-    </column>
-    <column id="56" parent="14" name="project_id">
-      <Position>5</Position>
-      <DataType>bigint(20)|0</DataType>
-    </column>
-    <column id="57" parent="14" name="title">
-      <Position>6</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="58" parent="14" name="update_time">
-      <Position>7</Position>
-      <DataType>datetime|0</DataType>
     </column>
     <key id="59" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
@@ -224,21 +221,56 @@
     </column>
     <column id="61" parent="15" name="comment">
       <Position>2</Position>
-      <DataType>varchar(2000)|0</DataType>
+      <DataType>varchar(1000)|0</DataType>
     </column>
     <column id="62" parent="15" name="create_time">
       <Position>3</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="63" parent="15" name="title">
+    <column id="63" parent="15" name="parameters">
+      <Position>4</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="64" parent="15" name="project_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="65" parent="15" name="title">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="66" parent="15" name="update_time">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="67" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="68" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="69" parent="16" name="comment">
+      <Position>2</Position>
+      <DataType>varchar(2000)|0</DataType>
+    </column>
+    <column id="70" parent="16" name="create_time">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="71" parent="16" name="title">
       <Position>4</Position>
       <DataType>varchar(1000)|0</DataType>
     </column>
-    <column id="64" parent="15" name="update_time">
+    <column id="72" parent="16" name="update_time">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="65" parent="15" name="PRIMARY">
+    <key id="73" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

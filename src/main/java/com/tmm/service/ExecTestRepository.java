@@ -1,15 +1,9 @@
 package com.tmm.service;
 
 
-import com.tmm.dto.Request.RequestDTO;
-import com.tmm.dto.Response.ResponseResult;
-import com.tmm.retrofit.RetrofitTools;
-
-import java.io.IOException;
-
 /**
  * Created by Captain Wang on 17/4/22.
- */
+
 public class ExecTestRepository {
 
     private RequestDTO requestDTO;
@@ -45,3 +39,4 @@ public class ExecTestRepository {
     }
 
 }
+ */
