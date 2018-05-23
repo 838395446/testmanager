@@ -1,7 +1,6 @@
 package com.tmm.retrofit;
 
-import com.alibaba.fastjson.JSON;
-import com.google.gson.Gson;
+import com.tmm.Tools.ApplicationTools;
 import com.tmm.dto.Request.CaseStepByRequest;
 import com.tmm.dto.Response.RequestInfo;
 import com.tmm.dto.Response.ResponseInfo;
@@ -29,9 +28,11 @@ public class RetrofitToolsByRequest {
     private Call<String> requestCall;
     private String errorMassage;
     private String method;
+    private String MsgHeather;
 
     public void RetrofitBuilder() {
         try {
+
             retrofit = new Retrofit.Builder()
                     .baseUrl(this.caseStepByRequest.getBaseUrl())
                     .addConverterFactory(ScalarsConverterFactory.create())
@@ -51,18 +52,30 @@ public class RetrofitToolsByRequest {
     }
 
     public RetrofitToolsByRequest(CaseStepByRequest request) {
-        this.errorMassage="";
+        this.errorMassage = "";
+        this.MsgHeather = "";
         this.caseStepByRequest = request;
         System.out.println("RequestDTO:" + caseStepByRequest.toString());
         RetrofitBuilder();
+
     }
 
+    /**
+     * 执行发送测试请求的方法
+     *
+     * @return
+     */
 
     public ResponseResult exceRequest() {
+        ApplicationTools applicationTools= new ApplicationTools();
         ResponseResult responseResult = new ResponseResult();
         responseResult.setMsg("");
 
         responseResult.setMsg(this.errorMassage);
+        RequestInfo requestInfoDTO = new RequestInfo();
+        ResponseInfo responseInfoDTO = new ResponseInfo();
+        responseInfoDTO.setErrorbody("");
+        responseInfoDTO.setMsg("");
         try {
 
             if (!responseResult.getMsg().isEmpty()) {
@@ -101,19 +114,22 @@ public class RetrofitToolsByRequest {
                 return responseResult;
             }
             this.re = this.requestCall.execute();
-            RequestInfo requestInfoDTO = new RequestInfo();
-            ResponseInfo responseInfoDTO = new ResponseInfo();
+
+
             //System.out.println(response);
             System.out.println("\n>>>>>>>>>>>>>>>>>>>>>>>\t\tREQUEST INFO\t\t>>>>>>>>>>>>>>>>>>>>>>>");
             //System.out.println("Request:\t" + response.request().toString());
 
-            System.out.println("Method: " + this.method + "  (Class: " + this.method.getClass().getSimpleName() + ")");
+            System.out.println("Method: " + this.method );
             System.out.println("URL:\t" + this.requestCall.request().toString().split(",")[1].substring(this.requestCall.request().toString().split(",")[1].indexOf("=") + 1));
             System.out.println("Request Headers:\t" + this.requestCall.request().headers());
             System.out.println("Request Body:\t" + this.caseStepByRequest.getRe_parameters());
             requestInfoDTO.setMethod(this.method);
+            if (!this.method.equals("GET")) {
+                requestInfoDTO.setUrl(this.requestCall.request().toString().split(",")[1].substring(this.requestCall.request().toString().split(",")[1].indexOf("=") + 1));
+            }
             requestInfoDTO.setUrl(this.requestCall.request().toString().split(",")[1].substring(this.requestCall.request().toString().split(",")[1].indexOf("=") + 1));
-            requestInfoDTO.setHeaders(this.requestCall.request().headers().toString());
+            requestInfoDTO.setHeaders(applicationTools.mapReaderToHtmlText(this.requestCall.request().headers().toMultimap()));
             requestInfoDTO.setBody(this.caseStepByRequest.getRe_parameters());
 
 
@@ -131,10 +147,10 @@ public class RetrofitToolsByRequest {
                 responseInfoDTO.setBody(this.re.body());
             }
             responseInfoDTO.setCode(this.re.code());
-            responseInfoDTO.setHeaders(this.re.headers().toString());
+            responseInfoDTO.setHeaders(applicationTools.mapReaderToHtmlText(this.re.headers().toMultimap()));
             if (this.re.code() != 200) {
                 responseInfoDTO.setErrorbody(this.re.errorBody().string().toString());
-                System.out.println("ErrorBody:\t" + this.re.errorBody().string().toString());
+                System.out.println("ErrorBody:\t" + this.re.errorBody().string().toString()+responseInfoDTO.getErrorbody());
             }
 
             responseInfoDTO.setSuccessful(this.re.isSuccessful());
@@ -151,28 +167,67 @@ public class RetrofitToolsByRequest {
         }
     }
 
+    /**
+     * 判断get请求参数传入格式是否正确
+     * 传入格式为 map格式 ：A:123;b:234
+     *
+     * @return
+     */
+
     public String useRequestByGet() {
 
         String msg = "";
-        try {
-            Gson gson = new Gson();
-            Map maps = (Map) JSON.parse(caseStepByRequest.getRe_parameters());
-            System.out.println("转换MAP");
-            System.out.println(this.caseStepByRequest.getApi());
-            System.out.println("========  map : " + maps);
-            if (maps == null) {
+        if (caseStepByRequest.getRe_parameters().isEmpty()) {
+            Map maps = new HashMap<String, Object>();
+            this.requestCall = this.request.GET_With_Parameters(this.caseStepByRequest.getApi(), maps);
+            //System.out.println("GET请求参数:\n原值：" + caseStepByRequest.getRe_parameters() + "\nmap：" + maps);
+        } else {
+            try {
 
-                this.requestCall = this.request.GET(this.caseStepByRequest.getApi());
-                System.out.println("传值到call 1:" + requestCall);
-            } else {
-                this.requestCall = this.request.GET_With_Parameters(this.caseStepByRequest.getApi(), maps);
-                System.out.println("传值到call 2:" + requestCall);
+                if (caseStepByRequest.getRe_parameters().contains(";") == false && caseStepByRequest.getRe_parameters().contains(":") == false) {
+                    msg = "GET请求参数错误！";
+                } else {
+                    String[] paramaters = caseStepByRequest.getRe_parameters().split(";");
+                    Map maps = new HashMap<String, Object>();
+                    for (int i = 0; i < paramaters.length; i++) {
+                        //System.out.println("GET请求参数:\n原值：" + paramaters[i]);
+                        //System.out.println(paramaters[i].contains(":"));
+                        //System.out.println(paramaters[i].split(":")[0] + " " + paramaters[i].split(":")[1]);
+                        maps.put(paramaters[i].split(":")[0], paramaters[i].split(":")[1]);
+
+                    }
+
+                    this.requestCall = this.request.GET_With_Parameters(this.caseStepByRequest.getApi(), maps);
+                    System.out.println("GET请求参数" + maps);
+                }
+
+
+
+
+               /*
+                Gson gson = new Gson();
+
+                Map maps = (Map) JSON.parse(caseStepByRequest.getRe_parameters());
+
+                System.out.println("转换MAP");
+                System.out.println(this.caseStepByRequest.getApi());
+                System.out.println("========  map : " + maps);
+                if (maps == null) {
+
+                    this.requestCall = this.request.GET(this.caseStepByRequest.getApi());
+                    System.out.println("传值到call 1:" + requestCall);
+                } else {
+                    this.requestCall = this.request.GET_With_Parameters(this.caseStepByRequest.getApi(), maps);
+                    System.out.println("传值到call 2:" + requestCall);
+                }
+                */
+            } catch (Exception e) {
+                msg = "GET请求参数错误！";
+                e.printStackTrace();
+
             }
-
-        } catch (Exception e) {
-            msg = "GET请求参数错误！";
-
         }
+
 
         return msg;
     }
@@ -194,5 +249,6 @@ public class RetrofitToolsByRequest {
         }
         return map;
     }
+
 
 }
